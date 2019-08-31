@@ -1,0 +1,19 @@
+{
+    "meta":{
+        "experiment_path": "./experiments/video_prediction/",
+        "arch": "Custom",
+        "board_path": "./board/ex-1/"
+    },
+    "train":{
+        "epoches": 50,
+        "batch_size": 8,
+        "lr": 1e-3,
+        "print_freq": 20
+    },
+    "model":{
+        "input_size":[64,64],
+        "input_dim":1,
+        "hidden_dim":64,
+        "input_num": 10
+    }
+}
