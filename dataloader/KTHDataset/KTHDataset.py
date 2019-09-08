@@ -12,8 +12,8 @@ from torchvision import transforms
 from MakeDataset import make_data
 
 
-class MovingMNIST(data.Dataset):
-    """`MovingMNIST <http://www.cs.toronto.edu/~nitish/unsupervised_video/>`_ Dataset.
+class KTHDataset(data.Dataset):
+    """`KTHDataset <http://www.nada.kth.se/cvap/actions/>`_ Dataset.
 
     Args:
         root (string): Root directory of dataset where ``processed/training.pt``
