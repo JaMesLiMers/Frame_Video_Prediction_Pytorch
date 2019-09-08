@@ -104,35 +104,35 @@ class MovingMNIST(data.Dataset):
             else:
                 raise
         
-        #for url in self.urls:
-        #    print('Downloading ' + url)
-        #    data = urllib.request.urlopen(url)
-        #    filename = url.rpartition('/')[2]
-        #    file_dir = os.path.join(self.root, self.raw_folder)
-        #    file_path = os.path.join(self.root, self.raw_folder, filename)
-        #    with open(file_path, 'wb') as f:
-        #        f.write(data.read())
-#
-        #    try:
-        #        os.makedirs(file_path.replace('.zip', ''))
-        #    except OSError as e:
-        #        if e.errno == errno.EEXIST:
-        #            pass
-        #        else:
-        #            raise
-#
-        #    with zipfile.ZipFile(file_path) as zip_f:
-        #        for fileM in zip_f.namelist(): 
-        #            zip_f.extract(fileM, file_path.replace('.zip', ''))
-        #    os.unlink(file_path)
-        #
-        #print('downloading sequence file...')
-        #data = urllib.request.urlopen(self.sequence_url)
-        #sequence_name = url.rpartition('/')[2]
-        #file_dir = os.path.join(self.root, self.raw_folder)
-        #file_path = os.path.join(self.root, self.raw_folder, sequence_name)
-        #with open(file_path, 'wb') as f:
-        #    f.write(data.read())
+        for url in self.urls:
+            print('Downloading ' + url)
+            data = urllib.request.urlopen(url)
+            filename = url.rpartition('/')[2]
+            file_dir = os.path.join(self.root, self.raw_folder)
+            file_path = os.path.join(self.root, self.raw_folder, filename)
+            with open(file_path, 'wb') as f:
+                f.write(data.read())
+
+            try:
+                os.makedirs(file_path.replace('.zip', ''))
+            except OSError as e:
+                if e.errno == errno.EEXIST:
+                    pass
+                else:
+                    raise
+
+            with zipfile.ZipFile(file_path) as zip_f:
+                for fileM in zip_f.namelist(): 
+                    zip_f.extract(fileM, file_path.replace('.zip', ''))
+            os.unlink(file_path)
+        
+        print('downloading sequence file...')
+        data = urllib.request.urlopen(self.sequence_url)
+        sequence_name = url.rpartition('/')[2]
+        file_dir = os.path.join(self.root, self.raw_folder)
+        file_path = os.path.join(self.root, self.raw_folder, sequence_name)
+        with open(file_path, 'wb') as f:
+            f.write(data.read())
 
         # process and save as torch files
         print('Processing...')
