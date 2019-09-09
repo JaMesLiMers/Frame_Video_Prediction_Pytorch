@@ -98,7 +98,7 @@ def split_data(data_path, processed_folder, all_data):
 def match_sequence(path):
     with open(path, 'r') as f:
         data = f.read()
-        h = re.findall(r"((?:person\d\d_\w{1,}_\w{1,})|(?:\d{1,3}))", data)
+        h = re.findall(r"((?:person\d\d_\w{1,}_\w{1,})|(?:\d{1,4}))", data)
 
     start = False
     list_ = []

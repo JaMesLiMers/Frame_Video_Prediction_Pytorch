@@ -60,25 +60,53 @@ class KTHDataset(data.Dataset):
                                ' You can use download=True to download it')
 
         if self.train:
-            self.train_data = joblib.load(
+            self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.training_file))
-            self.train_data += joblib.load(
+            self.data += joblib.load(
                 os.path.join(self.root, self.processed_folder, self.validate_file))
+            self.data += joblib.load(
+                os.path.join(self.root, self.processed_folder, self.test_file))
         elif not self.train:
-            self.test_data = joblib.load(
+            self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.test_file))
         elif self.train is 'train':
-            self.train_data = joblib.load(
+            self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.training_file))
         elif self.train is 'test':
-            self.train_data = joblib.load(
+            self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.test_file))
         elif self.train is 'validate':
-            self.train_data = joblib.load(
+            self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.validate_file))
         else:
             raise NotImplementedError("invalied string input for train, need 'train','test' or 'validate'")
+        
+        self.test_data()
 
+    def test_data(self):
+        for i in self.data:
+            sequence = i['sequence']
+            for j in range(len(sequence)):
+                if j%2 == 0:
+                    if sequence[j+1] - sequence[j] <= 20:
+                        print(i["filename"] + 'error')
+
+    def __getitem__(self, index):
+        """
+        Args:
+            index (int): Index
+
+        Returns:
+            tuple: (seq, target) where sampled sequences are splitted into a seq
+                    and target part
+        """
+
+        sequence = self.data[index]["sequence"]
+        choice = np.random.randint(low=0, high=len(sequence)//2)*2
+        frames = np.random.randint(low=sequence[choice]-1, high=sequence[choice+1] - 20 -1)
+        train_frames = self.data[index]["frames"][frames:frames+10]
+        gt_frames = self.data[index]["frames"][frames+10:frames+20]
+        return train_frames, gt_frames
 
     def _check_exists(self):
         return os.path.exists(os.path.join(self.root, self.processed_folder, self.training_file)) and \
@@ -155,4 +183,4 @@ class KTHDataset(data.Dataset):
         print('Done!')
 
 if __name__ == "__main__":
-    a = MovingMNIST('./data/KTHDataset', download=True)
+    a = KTHDataset('./data/KTHDataset', download=True)
