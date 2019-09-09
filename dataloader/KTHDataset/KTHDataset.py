@@ -91,6 +91,9 @@ class KTHDataset(data.Dataset):
                     if sequence[j+1] - sequence[j] <= 20:
                         print(i["filename"] + 'error')
 
+    def __len__(self):
+        return len(self.data)
+
     def __getitem__(self, index):
         """
         Args:
