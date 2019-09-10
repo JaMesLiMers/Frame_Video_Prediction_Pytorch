@@ -103,7 +103,8 @@ venv.bak/
 .mypy_cache/
 
 .DS_Store
-data/mnist/processed/moving_mnist_test.pt
-data/mnist/processed/moving_mnist_train.pt
-data/mnist/raw/mnist_test_seq.npy
+data/mnist/raw
+data/mnist/processed
+data/KTHDataset/raw
+data/KTHDataset/processed
 .vscode/settings.json
