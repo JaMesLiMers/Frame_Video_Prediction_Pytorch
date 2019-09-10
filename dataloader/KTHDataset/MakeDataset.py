@@ -43,11 +43,19 @@ def make_data(data_path, raw_folder, processed_folder, sequence_name='00sequence
 
                 if not ret:
                     break
+
+                frame =  cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
             
                 frames_current_file.append(frame)
         
             if 'person13_handclapping_d3' in sequence[filename[:-11]]:
                 continue
+
+            if len(frames_current_file) < sequence[filename[:-11]][-1]:
+                print('problem: {}, seq {}/c {}, fixed'.format(filename[:-11], sequence[filename[:-11]][-1], len(frames_current_file)))
+                sequence[filename[:-11]][-1] = len(frames_current_file)
+
+
 
             frames.append({
                 'filename': filename,
@@ -134,5 +142,5 @@ def match_sequence(path):
 if __name__ == "__main__":
     # print(os.getcwd())
     # match_sequence('./data/KTHDataset/raw/00sequences.txt')
-    # make_data(data_path='./data/KTHDataset', raw_folder='raw', processed_folder='processed', sequence_name='00sequences.txt')
+    make_data(data_path='./data/KTHDataset', raw_folder='raw', processed_folder='processed', sequence_name='00sequences.txt')
     pass

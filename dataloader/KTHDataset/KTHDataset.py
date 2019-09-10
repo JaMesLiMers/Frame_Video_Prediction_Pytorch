@@ -1,6 +1,7 @@
 from __future__ import print_function
 import torch.utils.data as data
 from PIL import Image
+import sys
 import os
 import os.path
 import errno
@@ -9,7 +10,15 @@ import torch
 import codecs
 import joblib
 from torchvision import transforms
-from MakeDataset import make_data
+
+
+parent_path = os.path.dirname(os.path.dirname(os.getcwd()))
+if 'KTHDataset' in os.getcwd():
+    os.chdir(parent_path)
+sys.path.insert(0, os.getcwd())
+
+
+from dataloader.KTHDataset.MakeDataset import make_data
 
 
 class KTHDataset(data.Dataset):
@@ -21,6 +30,7 @@ class KTHDataset(data.Dataset):
         train (bool or string, optional): If True, creates dataset from ``training.pt``,
             otherwise from ``test.pt``, If string in 'test/train/validate' then create 
             according dataset.
+        data_length (int or None): number of data per epoch
         download (bool, optional): If true, downloads the dataset from the internet and
             puts it in root directory. If dataset is already downloaded, it is not
             downloaded again.
@@ -45,15 +55,15 @@ class KTHDataset(data.Dataset):
     validate_file = 'validate.pkl'
     sequence_name = '00sequences.txt'
 
-    def __init__(self, root, train=True, transform=None, target_transform=None, download=False):
+    def __init__(self, root, train=True, transform=None, target_transform=None, download=False, data_length=None):
         self.root = os.path.expanduser(root)
         self.transform = transform
         self.target_transform = target_transform
         self.train = train  # training set or test set
+        self.data_length = data_length
 
         if download:
             self.download()
-
         
         if not self._check_exists():
             raise RuntimeError('Dataset not found.' +
@@ -64,8 +74,6 @@ class KTHDataset(data.Dataset):
                 os.path.join(self.root, self.processed_folder, self.training_file))
             self.data += joblib.load(
                 os.path.join(self.root, self.processed_folder, self.validate_file))
-            self.data += joblib.load(
-                os.path.join(self.root, self.processed_folder, self.test_file))
         elif not self.train:
             self.data = joblib.load(
                 os.path.join(self.root, self.processed_folder, self.test_file))
@@ -81,7 +89,15 @@ class KTHDataset(data.Dataset):
         else:
             raise NotImplementedError("invalied string input for train, need 'train','test' or 'validate'")
         
-        self.test_data()
+        # self.test_data()
+
+        # init index list
+        # index_list = []
+        # while len(index_list) <= self.__len__():
+        #     index_list += list(range(len(self.data)))
+        # self.index_list = index_list[0:self.__len__()]
+        # or random
+        self.index_list = np.random.randint(low=0, high=len(self.data), size=self.__len__())
 
     def test_data(self):
         for i in self.data:
@@ -92,7 +108,14 @@ class KTHDataset(data.Dataset):
                         print(i["filename"] + 'error')
 
     def __len__(self):
-        return len(self.data)
+        if self.data_length is not int:
+            length = 0
+            for i in self.data:
+                length += i['sequence'][-1]
+            self.data_length = length
+            return self.data_length
+        else:
+            return self.data_length
 
     def __getitem__(self, index):
         """
@@ -104,11 +127,22 @@ class KTHDataset(data.Dataset):
                     and target part
         """
 
-        sequence = self.data[index]["sequence"]
+        sequence = self.data[self.index_list[index]]["sequence"]
         choice = np.random.randint(low=0, high=len(sequence)//2)*2
         frames = np.random.randint(low=sequence[choice]-1, high=sequence[choice+1] - 20 -1)
-        train_frames = self.data[index]["frames"][frames:frames+10]
-        gt_frames = self.data[index]["frames"][frames+10:frames+20]
+        train_frames = self.data[self.index_list[index]]["frames"][frames:frames+10]
+        gt_frames = self.data[self.index_list[index]]["frames"][frames+10:frames+20]
+
+
+        train_frames = [Image.fromarray(train_frames[i], mode='L') for i in range(10)]
+        gt_frames = [Image.fromarray(gt_frames[i], mode='L') for i in range(10)]
+
+        if self.transform is not None:
+            train_frames = torch.stack([self.transform(train_frames[i]) for i in range(10)])
+
+        if self.target_transform is not None:
+            gt_frames = torch.stack([self.target_transform(gt_frames[i]) for i in range(10)])
+
         return train_frames, gt_frames
 
     def _check_exists(self):
@@ -184,6 +218,19 @@ class KTHDataset(data.Dataset):
             joblib.dump(validate_data, f)
         
         print('Done!')
+    
+    def __repr__(self):
+        fmt_str = 'Dataset ' + self.__class__.__name__ + '\n'
+        fmt_str += '    Number of datapoints: {}\n'.format(self.__len__())
+        fmt_str += '    Number of data: {}\n'.format(len(self.data))
+        tmp = 'train' if self.train is True else 'test'
+        fmt_str += '    Train/test: {}\n'.format(tmp)
+        fmt_str += '    Root Location: {}\n'.format(self.root)
+        tmp = '    Transforms (if any): '
+        fmt_str += '{0}{1}\n'.format(tmp, self.transform.__repr__().replace('\n', '\n' + ' ' * len(tmp)))
+        tmp = '    Target Transforms (if any): '
+        fmt_str += '{0}{1}'.format(tmp, self.target_transform.__repr__().replace('\n', '\n' + ' ' * len(tmp)))
+        return fmt_str
 
 if __name__ == "__main__":
     a = KTHDataset('./data/KTHDataset', download=True)
