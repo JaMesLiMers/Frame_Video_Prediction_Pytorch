@@ -160,9 +160,9 @@ for epoch in range(epoches):
             writer.add_video('train_seq/feed_seq', seq, epoch*train_lenth + step + 1)
             writer.add_video('train_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
             writer.add_video('train_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
-            writer.add_video('test_seq/feed_seq', seq, epoch*train_lenth + step + 1)
-            writer.add_video('test_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
-            writer.add_video('test_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/feed_seq', seq_test, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/gt_seq', gt_seq_test, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/pred_seq', test_output, epoch*train_lenth + step + 1)
             
         writer.add_scalars('loss/merge', {"train_loss": loss_,"test_loss":test_loss}, epoch*train_lenth + step + 1)
 
