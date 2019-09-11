@@ -29,24 +29,23 @@ class ConvLSTMCell(nn.Module):
 
         super(ConvLSTMCell, self).__init__()
 
-        # 初始化部分
-        self.height, self.width = input_size                            # 初始化高和宽
-        self.input_dim  = input_dim                                     # 初始化输入的维度
-        self.hidden_dim = hidden_dim                                    # 初始化输出的维度
+        # init parameters
+        self.height, self.width = input_size                            # init hight and width
+        self.input_dim  = input_dim                                     # init input dim
+        self.hidden_dim = hidden_dim                                    # init output dim
 
-        self.kernel_size = kernel_size                                  # 初始化核的大小
-        self.padding     = kernel_size[0] // 2, kernel_size[1] // 2     # 自动算padding的大小
-        self.bias        = bias                                         # 初始化bias
+        self.kernel_size = kernel_size                                  # init kernel size
+        self.padding     = kernel_size[0] // 2, kernel_size[1] // 2     # caculate padding size automatically
+        self.bias        = bias                                         # init bias
 
-        # TODO: 搞懂如何使用大卷积将所有gate包括起来的
-        # 所有的gate部分的卷积操作都可以用一个大的卷积来包含起来
+        # all gate conv operation can be include in a big conv layer
         self.conv = nn.Conv2d(in_channels=self.input_dim + self.hidden_dim,
                               out_channels=4 * self.hidden_dim,
                               kernel_size=self.kernel_size,
                               padding=self.padding,
                               bias=self.bias)
 
-        # 初始化参数
+        # init parameters
         nn.init.orthogonal(self.conv.weight)
         if self.bias is True:
             nn.init.ones_(self.conv.bias)
@@ -77,7 +76,7 @@ class ConvLSTMCell(nn.Module):
         g = F.relu(cc_g)
 
         c_next = f * c_cur + i * g
-        h_next = o * F.tanh(c_next)
+        h_next = o * torch.tanh(c_next)
         
         return h_next, c_next
 
@@ -103,18 +102,16 @@ class ConvGRUCell(nn.Module):
         """
         super(ConvGRUCell, self).__init__()
 
-        # 初始化部分
-        self.height, self.width = input_size                            # 初始化高和宽
-        self.input_dim  = input_dim                                     # 初始化输入的维度
-        self.hidden_dim = hidden_dim                                    # 初始化输出的维度
+        # init all parameter
+        self.height, self.width = input_size                            # init hight and width
+        self.input_dim  = input_dim                                     # init input dim
+        self.hidden_dim = hidden_dim                                    # init output dim
 
-        self.kernel_size = kernel_size                                  # 初始化核的大小
-        self.padding     = kernel_size[0] // 2, kernel_size[1] // 2     # 自动算padding的大小
-        self.bias        = bias                                         # 初始化bias
+        self.kernel_size = kernel_size                                  # init kernel size
+        self.padding     = kernel_size[0] // 2, kernel_size[1] // 2     # caculate padding size automatically
+        self.bias        = bias                                         # init bias
 
-
-        # TODO: 搞懂如何使用大卷积将所有gate包括起来的
-        # 所有的gate部分的卷积操作都可以用一个大的卷积来包含起来
+        # all gate conv operation can be include in a big conv layer
         self.conv_gates = nn.Conv2d(in_channels=self.input_dim + self.hidden_dim,
                                     out_channels=2*self.hidden_dim,  # for update_gate,reset_gate respectively
                                     kernel_size=self.kernel_size,
@@ -127,7 +124,7 @@ class ConvGRUCell(nn.Module):
                               padding=self.padding,
                               bias=self.bias)
 
-        # 初始化参数
+        # init conv parameter and bias parameter
         nn.init.orthogonal(self.conv_can.weight)
         nn.init.orthogonal(self.conv_gates.weight)
         if self.bias is True:

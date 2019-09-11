@@ -5,7 +5,8 @@ from model.convRNN import ConvGRUCell, ConvLSTMCell
 class Custom(nn.Module):
     def __init__(self, cfg):
         """
-        需要定义的东西都在cfg里面, cfg为传入的一个字典
+        All we need to use is in cfg
+        cfg.somepart["par_name"]
         """
         super(Custom, self).__init__()
         self.input_size=cfg['input_size']
@@ -37,7 +38,7 @@ class Custom(nn.Module):
                                 padding=1)
                 
 
-    def forward(self, input, hidden=None, future=0):
+    def forward(self, input, hidden=None, future=10):
         """
         input: (b,t,c,h,w)
         hidden: hidden of last time (b, c_hidden, h, w)
@@ -48,7 +49,7 @@ class Custom(nn.Module):
             h_t, c_t = self.convlstm_1.init_hidden(input.size(0))
             h_t2, c_t2 = self.convlstm_1.init_hidden(input.size(0))
         else:
-            # TODO: 写hidden的处理机制
+            # TODO: build a stateful model
             raise NotImplementedError
 
         outputs = []

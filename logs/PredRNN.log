@@ -1,0 +1,2 @@
+[2019-09-11 15:42:12,782-config_helper.py# 61] [DEBUG] Used config: 
+ {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 2, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}

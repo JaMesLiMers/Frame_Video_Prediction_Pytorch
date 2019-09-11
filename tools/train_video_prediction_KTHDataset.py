@@ -72,7 +72,7 @@ train_loader = torch.utils.data.DataLoader(
 test_loader = torch.utils.data.DataLoader(
                 dataset=test_set,
                 batch_size=batch_size,
-                shuffle=False)
+                shuffle=True)
 
 # 建立test的iter
 test_iter = iter(test_loader)
@@ -103,6 +103,7 @@ scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer=optimizer, milestones
 
 # 建立loss
 loss = nn.MSELoss().to(device)
+loss_2 = nn.L1Loss().to(device)
 # 这次用crossEntropy
 # loss = nn.BCELoss()
 
@@ -127,6 +128,7 @@ for epoch in range(epoches):
 
         # loss计算
         loss_ = loss(layer_output[:, -input_num:, :, :, :], seq_target[:, -input_num:, :, :, :])
+        loss_ += loss_2(layer_output[:, -input_num:, :, :, :], seq_target[:, -input_num:, :, :, :])
         loss_.backward()
 
         # 优化器更新
@@ -149,14 +151,19 @@ for epoch in range(epoches):
 
             # loss计算
             test_loss = loss(seq_test[:, -input_num:, :, :, :], gt_seq_test[:, -input_num:, :, :, :])
+            test_loss += loss_2(seq_test[:, -input_num:, :, :, :], gt_seq_test[:, -input_num:, :, :, :])
 
         step_time = time.time() - step_time
 
         # 将有用的信息存进tensorboard中
         if (step+1) % print_freq == 0:
-            writer.add_video('seq/train_seq', seq, epoch*train_lenth + step + 1)
-            writer.add_video('seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
-            writer.add_video('seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/feed_seq', seq, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/feed_seq', seq, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
+            
         writer.add_scalars('loss/merge', {"train_loss": loss_,"test_loss":test_loss}, epoch*train_lenth + step + 1)
 
         # 更新avrager
