@@ -162,10 +162,10 @@ for epoch in range(epoches):
             writer.add_video('seq/train_seq', seq, epoch*train_lenth + step + 1)
             writer.add_video('seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
             writer.add_video('seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
-        writer.add_scalars('loss/merge', {"train_loss": loss_,"test_loss":test_loss}, epoch*train_lenth + step + 1)
+        writer.add_scalars('loss/merge', {"train_loss": train_loss,"test_loss":test_loss}, epoch*train_lenth + step + 1)
 
         # 更新avrager
-        avg.update(step_time=step_time, train_loss=loss_, test_loss=test_loss) # 算平均值
+        avg.update(step_time=step_time, train_loss=train_loss, test_loss=test_loss) # 算平均值
 
         # 打印结果
         if (step+1) % print_freq == 0:

@@ -1,7 +1,2 @@
-[2019-09-16 22:17:41,209-config_helper.py# 61] [DEBUG] Used config: 
+[2019-09-16 22:50:45,250-config_helper.py# 61] [DEBUG] Used config: 
  {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'video_prediction_demo'}, 'train': {'epoches': 50, 'batch_size': 16, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
-[2019-09-16 22:18:50,157-train_video_prediction_KTHDataset.py# 85] [DEBUG] ==>>> total trainning batch number: 11681
-[2019-09-16 22:18:50,157-train_video_prediction_KTHDataset.py# 86] [DEBUG] ==>>> total testing batch number: 6383
-[2019-09-16 22:18:51,767-train_video_prediction_KTHDataset.py#121] [DEBUG] Input:  torch.Size([16, 10, 1, 64, 64])
-[2019-09-16 22:18:51,767-train_video_prediction_KTHDataset.py#122] [DEBUG] --- Sample
-[2019-09-16 22:18:51,767-train_video_prediction_KTHDataset.py#123] [DEBUG] Target: torch.Size([16, 10, 1, 64, 64])
