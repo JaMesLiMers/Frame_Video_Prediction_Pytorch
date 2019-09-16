@@ -22,7 +22,7 @@ from model.losses import SSIM
 
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
-parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config.json"), type=str, required=False, help='training config file path')
+parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config_PredRNN.json"), type=str, required=False, help='training config file path')
 
 args = parser.parse_args()
 
