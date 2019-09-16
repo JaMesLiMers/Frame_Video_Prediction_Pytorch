@@ -18,6 +18,7 @@ import logging
 from utils.log_helper import init_log, add_file_handler, print_speed
 from utils.config_helper import Configs
 from utils.average_meter_helper import AverageMeter
+from model.losses import SSIM
 
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
@@ -37,7 +38,7 @@ batch_size = cfg.train['batch_size']
 epoches = cfg.train['epoches']
 lr = cfg.train['lr']
 # 初始化未来帧的数量
-input_num = cfg.model['input_num']
+num_frame = cfg.model['input_num']
 # print freq
 print_freq = cfg.train['print_freq']
 
@@ -102,10 +103,14 @@ optimizer = torch.optim.Adam(model.parameters(), lr=lr, betas=(0.9,0.999))
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer=optimizer, milestones=[10,20,30,40], gamma=0.5)
 
 # 建立loss
-loss = nn.MSELoss().to(device)
-loss_2 = nn.L1Loss().to(device)
-# 这次用crossEntropy
-# loss = nn.BCELoss()
+loss_L1 = nn.MSELoss().to(device)
+loss_L2 = nn.L1Loss().to(device)
+# crossEntropy
+loss_BCE = nn.BCELoss().to(device)
+# SSIM
+loss_SSIM = SSIM(window_size=11, size_average=True)
+
+loss = loss_SSIM
 
 # 训练的部分
 for epoch in range(epoches):
@@ -124,12 +129,11 @@ for epoch in range(epoches):
         optimizer.zero_grad()
 
         # 送入模型进行推断
-        layer_output = model(seq, future=input_num)
+        layer_output = model(seq, future=num_frame)
 
         # loss计算
-        loss_ = loss(layer_output[:, -input_num:, :, :, :], seq_target[:, -input_num:, :, :, :])
-        loss_ += loss_2(layer_output[:, -input_num:, :, :, :], seq_target[:, -input_num:, :, :, :])
-        loss_.backward()
+        train_loss = loss(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
+        train_loss.backward()
 
         # 优化器更新
         optimizer.step()
@@ -147,11 +151,10 @@ for epoch in range(epoches):
             seq_test, gt_seq_test = seq_test.to(device), gt_seq_test.to(device)
 
             # 送入模型进行推断
-            test_output = model(seq_test, future=input_num)
+            test_output = model(seq_test, future=num_frame)
 
             # loss计算
-            test_loss = loss(seq_test[:, -input_num:, :, :, :], gt_seq_test[:, -input_num:, :, :, :])
-            test_loss += loss_2(seq_test[:, -input_num:, :, :, :], gt_seq_test[:, -input_num:, :, :, :])
+            test_loss = loss(seq_test[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
 
         step_time = time.time() - step_time
 

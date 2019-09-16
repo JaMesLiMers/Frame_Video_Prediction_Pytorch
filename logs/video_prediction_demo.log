@@ -1,2 +1,2 @@
-[2019-09-10 22:42:20,339-config_helper.py# 61] [DEBUG] Used config: 
- {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'video_prediction_demo'}, 'train': {'epoches': 50, 'batch_size': 8, 'lr': 0.001, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'input_num': 10}}
+[2019-09-16 22:17:41,209-config_helper.py# 61] [DEBUG] Used config: 
+ {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'video_prediction_demo'}, 'train': {'epoches': 50, 'batch_size': 16, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
