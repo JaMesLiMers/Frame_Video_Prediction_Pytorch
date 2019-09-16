@@ -59,7 +59,10 @@ class SSIM(torch.nn.Module):
         self.window = create_window(window_size, self.channel)
 
     def forward(self, img1, img2):
-        (_, channel, _, _) = img1.size()
+        if len(img1.size()) is 5:
+            (batch, frames, channel, _, _) = img1.size()
+        else:
+            (_, channel, _, _) = img1.size()
 
         if channel == self.channel and self.window.data.type() == img1.data.type():
             window = self.window
@@ -72,27 +75,45 @@ class SSIM(torch.nn.Module):
             
             self.window = window
             self.channel = channel
+        
+        if len(img1.size()) is 5:
+            mean = []
+            for i in range(frames):
+                mean.append(_ssim(img1[:,i,:,:,:], img2[:,i,:,:,:], window, self.window_size, channel, self.size_average))
+            mean = torch.stack(mean, dim=0)
+            return mean.mean()
+        else:
+            return _ssim(img1, img2, window, self.window_size, channel, self.size_average)
 
-
-        return _ssim(img1, img2, window, self.window_size, channel, self.size_average)
 
 # 一次性的测试函数
 def ssim(img1, img2, window_size = 11, size_average = True):
-    (_, channel, _, _) = img1.size()
+    if len(img1.size()) is 5:
+        (batch, frames, channel, _, _) = img1.size()
+    else:
+        (_, channel, _, _) = img1.size()
+
     window = create_window(window_size, channel)
     
     if img1.is_cuda:
         window = window.cuda(img1.get_device())
     window = window.type_as(img1)
-    
-    return _ssim(img1, img2, window, window_size, channel, size_average)
+
+    if len(img1.size()) is 5:
+        mean = []
+        for i in range(frames):
+            mean.append(_ssim(img1[:,i,:,:,:], img2[:,i,:,:,:], window, window_size, channel, size_average))
+        mean = torch.stack(mean, dim=0)
+        return mean.mean()
+    else:
+        return _ssim(img1, img2, window, window_size, channel, size_average)
 
 
 
 if __name__ == "__main__":
     # how to use
-    img1 = torch.rand(10, 3, 256, 256)
-    img2 = torch.rand(10, 3, 256, 256)
+    img1 = torch.rand(10, 10, 3, 256, 256)
+    img2 = torch.rand(10, 10, 3, 256, 256)
 
     if torch.cuda.is_available():
         img1 = img1.cuda()
