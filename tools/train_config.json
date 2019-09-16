@@ -7,7 +7,7 @@
     },
     "train":{
         "epoches": 50,
-        "batch_size": 16,
+        "batch_size": 2,
         "lr": 1e-5,
         "print_freq": 20
     },

@@ -1,2 +1,7 @@
-[2019-09-16 22:50:45,250-config_helper.py# 61] [DEBUG] Used config: 
- {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'video_prediction_demo'}, 'train': {'epoches': 50, 'batch_size': 16, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
+[2019-09-16 22:51:45,904-config_helper.py# 61] [DEBUG] Used config: 
+ {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'video_prediction_demo'}, 'train': {'epoches': 50, 'batch_size': 2, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
+[2019-09-16 22:51:46,405-train_video_prediction_MNIST.py# 86] [DEBUG] ==>>> total trainning batch number: 4500
+[2019-09-16 22:51:46,405-train_video_prediction_MNIST.py# 87] [DEBUG] ==>>> total testing batch number: 500
+[2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#122] [DEBUG] Input:  torch.Size([2, 10, 1, 64, 64])
+[2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#123] [DEBUG] --- Sample
+[2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#124] [DEBUG] Target: torch.Size([2, 10, 1, 64, 64])

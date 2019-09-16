@@ -111,6 +111,8 @@ loss_BCE = nn.BCELoss().to(device)
 # SSIM
 loss_SSIM = SSIM(window_size=11, size_average=True)
 
+loss = loss_SSIM
+
 # 训练的部分
 for epoch in range(epoches):
     for step, [seq, seq_target] in enumerate(train_loader):
