@@ -1,7 +1,7 @@
-[2019-09-16 22:48:46,695-config_helper.py# 61] [DEBUG] Used config: 
- {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 2, 'lr': 1e-05, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
-[2019-09-16 22:49:55,308-train_video_prediction_KTHDataset.py# 85] [DEBUG] ==>>> total trainning batch number: 93442
-[2019-09-16 22:49:55,308-train_video_prediction_KTHDataset.py# 86] [DEBUG] ==>>> total testing batch number: 51062
-[2019-09-16 22:49:57,054-train_video_prediction_KTHDataset.py#121] [DEBUG] Input:  torch.Size([2, 10, 1, 64, 64])
-[2019-09-16 22:49:57,083-train_video_prediction_KTHDataset.py#122] [DEBUG] --- Sample
-[2019-09-16 22:49:57,083-train_video_prediction_KTHDataset.py#123] [DEBUG] Target: torch.Size([2, 10, 1, 64, 64])
+[2019-09-17 15:29:31,382-config_helper.py# 61] [DEBUG] Used config: 
+ {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 2, 'lr': 0.001, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
+[2019-09-17 15:29:31,835-train_video_prediction_MNIST.py# 86] [DEBUG] ==>>> total trainning batch number: 4500
+[2019-09-17 15:29:31,835-train_video_prediction_MNIST.py# 87] [DEBUG] ==>>> total testing batch number: 500
+[2019-09-17 15:29:33,234-train_video_prediction_MNIST.py#122] [DEBUG] Input:  torch.Size([2, 10, 1, 64, 64])
+[2019-09-17 15:29:33,235-train_video_prediction_MNIST.py#123] [DEBUG] --- Sample
+[2019-09-17 15:29:33,235-train_video_prediction_MNIST.py#124] [DEBUG] Target: torch.Size([2, 10, 1, 64, 64])

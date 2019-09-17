@@ -5,3 +5,27 @@
 [2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#122] [DEBUG] Input:  torch.Size([2, 10, 1, 64, 64])
 [2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#123] [DEBUG] --- Sample
 [2019-09-16 22:51:47,746-train_video_prediction_MNIST.py#124] [DEBUG] Target: torch.Size([2, 10, 1, 64, 64])
+[2019-09-16 22:51:53,019-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][20/4500] step_time: 0.085659 (0.176182)	train_loss: 0.001326 (0.001210)	test_loss: 0.722058 (0.660619)
+[2019-09-16 22:51:53,019-log_helper.py# 77] [INFO] Progress: 20 / 225000 [0%], Speed: 0.176 s/iter, ETA 0:11:00 (D:H:M)
+
+[2019-09-16 22:51:55,188-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][40/4500] step_time: 0.083421 (0.132536)	train_loss: 0.000929 (0.001134)	test_loss: 0.651724 (0.660121)
+[2019-09-16 22:51:55,198-log_helper.py# 77] [INFO] Progress: 40 / 225000 [0%], Speed: 0.133 s/iter, ETA 0:08:16 (D:H:M)
+
+[2019-09-16 22:51:57,431-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][60/4500] step_time: 0.091918 (0.118670)	train_loss: 0.000937 (0.001083)	test_loss: 0.643997 (0.663288)
+[2019-09-16 22:51:57,441-log_helper.py# 77] [INFO] Progress: 60 / 225000 [0%], Speed: 0.119 s/iter, ETA 0:07:24 (D:H:M)
+
+[2019-09-16 22:51:59,710-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][80/4500] step_time: 0.092299 (0.111957)	train_loss: 0.001022 (0.001052)	test_loss: 0.651355 (0.661283)
+[2019-09-16 22:51:59,720-log_helper.py# 77] [INFO] Progress: 80 / 225000 [0%], Speed: 0.112 s/iter, ETA 0:06:59 (D:H:M)
+
+[2019-09-16 22:52:01,975-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][100/4500] step_time: 0.091466 (0.107946)	train_loss: 0.001237 (0.001037)	test_loss: 0.650562 (0.663106)
+[2019-09-16 22:52:01,986-log_helper.py# 77] [INFO] Progress: 100 / 225000 [0%], Speed: 0.108 s/iter, ETA 0:06:44 (D:H:M)
+
+[2019-09-16 22:52:04,247-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][120/4500] step_time: 0.090912 (0.105267)	train_loss: 0.000851 (0.001020)	test_loss: 0.644908 (0.663379)
+[2019-09-16 22:52:04,247-log_helper.py# 77] [INFO] Progress: 120 / 225000 [0%], Speed: 0.105 s/iter, ETA 0:06:34 (D:H:M)
+
+[2019-09-16 22:52:06,537-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][140/4500] step_time: 0.093379 (0.103381)	train_loss: 0.000965 (0.001004)	test_loss: 0.654391 (0.661926)
+[2019-09-16 22:52:06,537-log_helper.py# 77] [INFO] Progress: 140 / 225000 [0%], Speed: 0.103 s/iter, ETA 0:06:27 (D:H:M)
+
+[2019-09-16 22:52:08,817-train_video_prediction_MNIST.py#175] [INFO] Epoch: [1][160/4500] step_time: 0.090414 (0.102013)	train_loss: 0.000988 (0.000988)	test_loss: 0.690861 (0.662392)
+[2019-09-16 22:52:08,817-log_helper.py# 77] [INFO] Progress: 160 / 225000 [0%], Speed: 0.102 s/iter, ETA 0:06:22 (D:H:M)
+

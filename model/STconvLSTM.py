@@ -6,7 +6,7 @@ use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
 
 class STConvLSTMCell(nn.Module):
-    def __init__(self, input_size, input_dim, hidden_dim, m_dim, kernel_size, bias):
+    def __init__(self, input_size, input_dim, hidden_dim, kernel_size, bias):
         """
         Initialize ConvLSTM cell.
         
@@ -32,7 +32,6 @@ class STConvLSTMCell(nn.Module):
         self.height, self.width = input_size                            # 初始化高和宽
         self.input_dim  = input_dim                                     # 初始化输入的维度
         self.hidden_dim = hidden_dim                                    # 初始化输出的维度
-        self.m_dim = m_dim                                              # init m's dim
 
         self.kernel_size = kernel_size                                  # 初始化核的大小
         self.padding     = kernel_size[0] // 2, kernel_size[1] // 2     # 自动算padding的大小
@@ -41,40 +40,42 @@ class STConvLSTMCell(nn.Module):
         # split the conv gate layers
         # for W * X_t
         self.conv_wx = nn.Conv2d(in_channels=self.input_dim,
-                                out_channels=3 * self.hidden_dim,
+                                out_channels=7 * self.hidden_dim,
                                 kernel_size=self.kernel_size,
                                 padding=self.padding,
                                 bias=False)
 
-        self.conv_wx_ = nn.Conv2d(in_channels=self.input_dim,
-                                out_channels=3 * self.m_dim,
-                                kernel_size=self.kernel_size,
-                                padding=self.padding,
-                                bias=False)
-
-        # for W * H^l
-        self.conv_whl_1 = nn.Conv2d(in_channels=self.hidden_dim,
-                                out_channels=3 * self.hidden_dim,
+        # for W * H^t_1
+        self.conv_wht_1 = nn.Conv2d(in_channels=self.hidden_dim,
+                                out_channels=4 * self.hidden_dim,
                                 kernel_size=self.kernel_size,
                                 padding=self.padding,
                                 bias=False)
                                 
-        # for W * M^l
-        self.conv_wml_1 = nn.Conv2d(in_channels=self.m_dim,
-                                out_channels=3 * self.m_dim,
+        # for W * M^l_1
+        self.conv_wml_1 = nn.Conv2d(in_channels=self.hidden_dim,
+                                out_channels=3 * self.hidden_dim,
                                 kernel_size=self.kernel_size,
                                 padding=self.padding,
                                 bias=False)
 
-        # for output gate
-        self.conv_o = nn.Conv2d(in_channels=self.input_dim + 2 * self.hidden_dim + self.m_dim,
+        # for W * M^l
+        self.conv_wml = nn.Conv2d(in_channels=self.hidden_dim,
+                                out_channels= self.hidden_dim,
+                                kernel_size=self.kernel_size,
+                                padding=self.padding,
+                                bias=False)
+
+        # for W * C^l
+        self.conv_wcl = nn.Conv2d(in_channels=self.hidden_dim,
                                 out_channels=self.hidden_dim,
                                 kernel_size=self.kernel_size,
                                 padding=self.padding,
-                                bias=self.bias)
+                                bias=False)
+                                
         
         # for generate H^l
-        self.conv_h = nn.Conv2d(in_channels=self.m_dim + self.hidden_dim,
+        self.conv_h = nn.Conv2d(in_channels=self.hidden_dim + self.hidden_dim,
                                 out_channels=self.hidden_dim,
                                 kernel_size=[1,1],
                                 padding=0,
@@ -82,10 +83,10 @@ class STConvLSTMCell(nn.Module):
 
         # init parameters
         nn.init.orthogonal(self.conv_wx.weight)
-        nn.init.orthogonal(self.conv_wx_.weight)
-        nn.init.orthogonal(self.conv_whl_1.weight)
+        nn.init.orthogonal(self.conv_wht_1.weight)
         nn.init.orthogonal(self.conv_wml_1.weight)
-        nn.init.orthogonal(self.conv_o.weight)
+        nn.init.orthogonal(self.conv_wml.weight)
+        nn.init.orthogonal(self.conv_wcl.weight)
         nn.init.orthogonal(self.conv_h.weight)
         # for bias
         if self.bias is True:
@@ -95,6 +96,7 @@ class STConvLSTMCell(nn.Module):
             self.b_g_ = torch.nn.Parameter(torch.ones(1))
             self.b_i_ = torch.nn.Parameter(torch.ones(1))
             self.b_f_ = torch.nn.Parameter(torch.ones(1))
+            self.b_o = torch.nn.Parameter(torch.ones(1))
     
     def forward(self, input_tensor, cur_state):
         """
@@ -114,14 +116,12 @@ class STConvLSTMCell(nn.Module):
         h_cur, c_cur, m_cur = cur_state
         # conv gate result
         conved_wx = self.conv_wx(input_tensor)
-        conved_wx_ = self.conv_wx_(input_tensor)
-        conved_whl_1 = self.conv_whl_1(h_cur)
+        conved_wht_1 = self.conv_wht_1(h_cur)
         conved_wml_1 = self.conv_wml_1(m_cur)
         # split gate result
-        wxg, wxi, wxf = torch.split(conved_wx, self.hidden_dim, dim=1)
-        wxg_, wxi_, wxf_ = torch.split(conved_wx_, self.m_dim, dim=1)
-        whg, whi, whf = torch.split(conved_whl_1, self.hidden_dim, dim=1)
-        wmg, wmi, wmf = torch.split(conved_wml_1, self.m_dim, dim=1)
+        wxg, wxi, wxf, wxg_, wxi_, wxf_, wxo = torch.split(conved_wx, self.hidden_dim, dim=1)
+        whg, whi, whf, who = torch.split(conved_wht_1, self.hidden_dim, dim=1)
+        wmg, wmi, wmf = torch.split(conved_wml_1, self.hidden_dim, dim=1)
         # for c_next
         g_t = torch.tanh(wxg + whg + self.b_g)
         i_t = torch.sigmoid(wxi + whi + self.b_i)
@@ -132,10 +132,11 @@ class STConvLSTMCell(nn.Module):
         i_t_ = torch.sigmoid(wxi_ + wmi + self.b_i_)
         f_t_ = torch.sigmoid(wxf_ + wmf + self.b_f_)
         m_next = f_t_ * m_cur + i_t_ * g_t_
+        # for wco, wmo
+        wco = self.conv_wcl(c_next)
+        wmo = self.conv_wml(m_next)
         # for output gate
-        # TODO:这里直接用concate到一起的方法会不会有问题 会不会分布不均匀
-        combined_xhcmo = torch.cat([input_tensor, h_cur, c_next, m_next], dim=1)
-        o_t = torch.sigmoid(self.conv_o(combined_xhcmo))
+        o_t = torch.sigmoid(wxo + who + wco + wmo + self.b_o)
         # for h_next
         combined_cmn = torch.cat([c_next, m_next], dim=1)
         h_next = o_t * torch.tanh(self.conv_h(combined_cmn))
@@ -146,7 +147,7 @@ class STConvLSTMCell(nn.Module):
     def init_hidden(self, batch_size):
         return (torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device),
                 torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device),
-                torch.zeros(batch_size, self.m_dim, self.height, self.width).to(device))
+                torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device))
         
 
 

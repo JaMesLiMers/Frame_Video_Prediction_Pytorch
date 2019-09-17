@@ -8,7 +8,7 @@
     "train":{
         "epoches": 50,
         "batch_size": 2,
-        "lr": 1e-5,
+        "lr": 1e-3,
         "print_freq": 20
     },
     "model":{

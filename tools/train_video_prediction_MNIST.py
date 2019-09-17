@@ -23,7 +23,7 @@ from model.losses import SSIM
 
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
-parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config.json"), type=str, required=False, help='training config file path')
+parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config_PredRNN.json"), type=str, required=False, help='training config file path')
 
 args = parser.parse_args()
 
@@ -111,7 +111,7 @@ loss_BCE = nn.BCELoss().to(device)
 # SSIM
 loss_SSIM = SSIM(window_size=11, size_average=True)
 
-loss = loss_SSIM
+loss = loss_L1
 
 # 训练的部分
 for epoch in range(epoches):
@@ -134,6 +134,9 @@ for epoch in range(epoches):
 
         # loss计算
         train_loss = loss(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
+
+        with torch.no_grad():
+            train_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
         train_loss.backward()
 
         # 优化器更新
@@ -156,23 +159,27 @@ for epoch in range(epoches):
 
             # loss计算
             test_loss = loss(seq_test[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
+            test_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
 
         step_time = time.time() - step_time
 
         # 将有用的信息存进tensorboard中
         if (step+1) % print_freq == 0:
-            writer.add_video('seq/train_seq', seq, epoch*train_lenth + step + 1)
-            writer.add_video('seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
-            writer.add_video('seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
-        writer.add_scalars('loss/merge', {"train_loss": train_loss,"test_loss":test_loss}, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/feed_seq', seq, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
+            writer.add_video('train_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/feed_seq', seq_test, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/gt_seq', gt_seq_test, epoch*train_lenth + step + 1)
+            writer.add_video('test_seq/pred_seq', test_output, epoch*train_lenth + step + 1)
+        writer.add_scalars('loss/merge', {"train_loss": train_loss,"test_loss":test_loss, "train_metric":train_metric, "test_metric":test_metric}, epoch*train_lenth + step + 1)
 
         # 更新avrager
-        avg.update(step_time=step_time, train_loss=train_loss, test_loss=test_loss) # 算平均值
+        avg.update(step_time=step_time, train_loss=train_loss, test_loss=test_loss, train_metric=train_metric) # 算平均值
 
         # 打印结果
         if (step+1) % print_freq == 0:
-                global_logger.info('Epoch: [{0}][{1}/{2}] {step_time:s}\t{train_loss:s}\t{test_loss:s}'.format(
-                            epoch+1, (step + 1) % train_lenth, train_lenth, step_time=avg.step_time, train_loss=avg.train_loss, test_loss=avg.test_loss))
+                global_logger.info('Epoch: [{0}][{1}/{2}] {step_time:s}\t{train_loss:s}\t{test_loss:s}\t{train_metric:s}'.format(
+                            epoch+1, (step + 1) % train_lenth, train_lenth, step_time=avg.step_time, train_loss=avg.train_loss, test_loss=avg.test_loss, train_metric=avg.train_metric))
                 print_speed(epoch*train_lenth + step + 1, avg.step_time.avg, epoches * train_lenth)
 
     # scheduler更新

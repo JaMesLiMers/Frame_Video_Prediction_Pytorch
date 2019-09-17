@@ -17,30 +17,31 @@ class Custom(nn.Module):
         self.stlstm_1 = STConvLSTMCell(input_size=self.input_size,
                                        input_dim=self.input_dim,
                                        hidden_dim=self.hidden_dim,
-                                       m_dim = self.hidden_dim,
                                        kernel_size=self.kernel_size,
                                        bias=True)
 
         self.stlstm_2 = STConvLSTMCell(input_size=self.input_size,
                                        input_dim=self.hidden_dim,
                                        hidden_dim=self.hidden_dim,
-                                       m_dim = self.hidden_dim,
                                        kernel_size=self.kernel_size,
                                        bias=True)
 
         self.stlstm_3 = STConvLSTMCell(input_size=self.input_size,
                                        input_dim=self.hidden_dim,
                                        hidden_dim=self.hidden_dim,
-                                       m_dim = self.hidden_dim,
                                        kernel_size=self.kernel_size,
                                        bias=True)
 
         self.stlstm_4 = STConvLSTMCell(input_size=self.input_size,
                                        input_dim=self.hidden_dim,
-                                       hidden_dim=self.input_dim,
-                                       m_dim = self.hidden_dim,
+                                       hidden_dim=self.hidden_dim,
                                        kernel_size=self.kernel_size,
                                        bias=True)
+
+        self.head = nn.Conv2d(in_channels=self.hidden_dim,
+                              out_channels=self.input_dim,
+                              kernel_size=(1,1),
+                              bias=True)
 
     def forward(self, input, hidden=None, future=10):
         """
@@ -77,15 +78,15 @@ class Custom(nn.Module):
             
             h_t4, c_t4, m_t4 = self.stlstm_4(input_tensor=h_t3,
                                          cur_state=[h_t4, c_t4, m_t3])
-        
-            output = nn.Sigmoid()(h_t4)
+
+            output = self.head(h_t4)
             outputs += [output]
 
         
         for t in range(future):
             m_t1 = m_t4
 
-            h_t1, c_t1, m_t1 = self.stlstm_1(input_tensor=input[:,t,:,:,:],
+            h_t1, c_t1, m_t1 = self.stlstm_1(input_tensor=outputs[-1],
                                        cur_state=[h_t1, c_t1, m_t1])
             
             h_t2, c_t2, m_t2 = self.stlstm_2(input_tensor=h_t1,
@@ -97,7 +98,7 @@ class Custom(nn.Module):
             h_t4, c_t4, m_t4 = self.stlstm_4(input_tensor=h_t3,
                                          cur_state=[h_t4, c_t4, m_t3])
         
-            output = nn.Sigmoid()(h_t4)
+            output = self.head(h_t4)
             outputs += [output]
 
         
