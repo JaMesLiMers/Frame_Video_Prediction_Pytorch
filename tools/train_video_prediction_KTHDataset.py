@@ -75,10 +75,12 @@ test_set = KTHDataset(root='./data/KTHDataset', train=False, download=True,
 train_loader = torch.utils.data.DataLoader(
                  dataset=train_set,
                  batch_size=batch_size,
+                 num_workers=16,
                  shuffle=True)
 test_loader = torch.utils.data.DataLoader(
                 dataset=test_set,
                 batch_size=batch_size,
+                num_workers=16,
                 shuffle=True)
 
 # 建立test的iter
