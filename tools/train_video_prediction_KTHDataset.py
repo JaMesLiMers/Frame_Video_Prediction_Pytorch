@@ -21,6 +21,11 @@ from utils.average_meter_helper import AverageMeter
 from model.loss.SSIM_Loss import SSIM
 from model.loss.L1_L2_Loss import L1_L2_Loss
 
+import inspect
+from utils.memory.gpu_mem_track import MemTracker
+frame = inspect.currentframe()
+gpu_tracker = MemTracker(frame)
+
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
 parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config_PredRNN.json"), type=str, required=False, help='training config file path')
@@ -133,7 +138,7 @@ for epoch in range(epoches):
         layer_output = model(seq, future=num_frame)
 
         # loss计算
-        train_loss = loss_L1_L2(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
+        train_loss = loss_BCE(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
         with torch.no_grad():
             train_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
         train_loss.backward()
@@ -157,13 +162,13 @@ for epoch in range(epoches):
             test_output = model(seq_test, future=num_frame)
 
             # loss计算
-            test_loss = loss_L1_L2(test_output[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
+            test_loss = loss_BCE(test_output[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
             test_metric = loss_SSIM(test_output[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
 
         step_time = time.time() - step_time
 
         # 将有用的信息存进tensorboard中
-        if (step+1) % print_freq == 0:
+        if (step+1) % 200 == 0:
             writer.add_video('train_seq/feed_seq', seq, epoch*train_lenth + step + 1)
             writer.add_video('train_seq/gt_seq', seq_target, epoch*train_lenth + step + 1)
             writer.add_video('train_seq/pred_seq', layer_output, epoch*train_lenth + step + 1)

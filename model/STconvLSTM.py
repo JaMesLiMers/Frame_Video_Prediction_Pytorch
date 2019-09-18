@@ -104,7 +104,8 @@ class STConvLSTMCell(nn.Module):
 
 
         # for bias
-        self.forget_bias = torch.nn.Parameter(torch.tensor(self.forget_bias))
+        self.forget_bias_h = torch.nn.Parameter(torch.tensor(self.forget_bias))
+        self.forget_bias_m = torch.nn.Parameter(torch.tensor(self.forget_bias))
     
     def forward(self, input_tensor, cur_state):
         """
@@ -138,12 +139,12 @@ class STConvLSTMCell(nn.Module):
         # for c_next
         g_t = torch.tanh(wxg + whg)
         i_t = torch.sigmoid(wxi + whi)
-        f_t = torch.sigmoid(wxf + whf + self.forget_bias)
+        f_t = torch.sigmoid(wxf + whf + self.forget_bias_h)
         c_next = f_t * c_cur + i_t * g_t
         # for m_next
         g_t_ = torch.tanh(wxg_ + wmg)
         i_t_ = torch.sigmoid(wxi_ + wmi)
-        f_t_ = torch.sigmoid(wxf_ + wmf + self.forget_bias)
+        f_t_ = torch.sigmoid(wxf_ + wmf + self.forget_bias_m)
         m_next = f_t_ * m_cur + i_t_ * g_t_
         # for wco, wmo
         wco = self.conv_wcl(c_next)
@@ -165,12 +166,12 @@ class STConvLSTMCell(nn.Module):
         return (torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device),
                 torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device),
                 torch.zeros(batch_size, self.hidden_dim, self.height, self.width).to(device))
-        
+
 
 
 def test():
     pass
-    
+
 
 
 if __name__ == "__main__":

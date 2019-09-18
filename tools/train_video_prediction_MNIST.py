@@ -22,6 +22,11 @@ from utils.average_meter_helper import AverageMeter
 from model.loss.SSIM_Loss import SSIM
 from model.loss.L1_L2_Loss import L1_L2_Loss
 
+import inspect
+from utils.memory.gpu_mem_track import MemTracker
+frame = inspect.currentframe()
+gpu_tracker = MemTracker(frame)
+
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
 parser.add_argument('-c', '--cfg', default=os.path.join(os.getcwd(), "tools", "train_config_PredRNN.json"), type=str, required=False, help='training config file path')
@@ -111,7 +116,7 @@ loss_L2 = nn.L1Loss().to(device)
 loss_BCE = nn.BCELoss().to(device)
 # SSIM
 loss_SSIM = SSIM(window_size=11, size_average=True)
-
+# L1 + L2 mean
 loss_L1_L2 = L1_L2_Loss().to(device)
 
 # 训练的部分

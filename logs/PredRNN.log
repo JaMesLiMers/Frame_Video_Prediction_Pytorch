@@ -1,28 +1,475 @@
-[2019-09-18 12:37:37,178-config_helper.py# 61] [DEBUG] Used config: 
+[2019-09-18 14:53:23,691-config_helper.py# 61] [DEBUG] Used config: 
  {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 1, 'lr': 0.001, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
-[2019-09-18 12:37:37,725-train_video_prediction_MNIST.py# 87] [DEBUG] ==>>> total trainning batch number: 9000
-[2019-09-18 12:37:37,725-train_video_prediction_MNIST.py# 88] [DEBUG] ==>>> total testing batch number: 1000
-[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#123] [DEBUG] Input:  torch.Size([1, 10, 1, 64, 64])
-[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#124] [DEBUG] --- Sample
-[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#125] [DEBUG] Target: torch.Size([1, 10, 1, 64, 64])
-[2019-09-18 12:37:49,613-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][20/9000] step_time: 0.320470 (0.434448)	train_loss: 0.138531 (0.304780)	test_loss: 0.168560 (0.275234)	train_metric: 0.016280 (0.006923)
-[2019-09-18 12:37:49,613-log_helper.py# 77] [INFO] Progress: 20 / 450000 [0%], Speed: 0.434 s/iter, ETA 2:06:18 (D:H:M)
+[2019-09-18 14:54:32,258-train_video_prediction_KTHDataset.py# 91] [DEBUG] ==>>> total trainning batch number: 186884
+[2019-09-18 14:54:32,258-train_video_prediction_KTHDataset.py# 92] [DEBUG] ==>>> total testing batch number: 102124
+[2019-09-18 14:54:34,147-train_video_prediction_KTHDataset.py#127] [DEBUG] Input:  torch.Size([1, 10, 1, 64, 64])
+[2019-09-18 14:54:34,147-train_video_prediction_KTHDataset.py#128] [DEBUG] --- Sample
+[2019-09-18 14:54:34,147-train_video_prediction_KTHDataset.py#129] [DEBUG] Target: torch.Size([1, 10, 1, 64, 64])
+[2019-09-18 14:54:43,285-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][20/186884] step_time: 0.348360 (0.453101)	train_loss: 0.517230 (0.639866)	test_loss: 0.726505 (0.766993)	train_metric: 0.634010 (0.601406)
+[2019-09-18 14:54:43,285-log_helper.py# 77] [INFO] Progress: 20 / 9344200 [0%], Speed: 0.453 s/iter, ETA 49:00:04 (D:H:M)
 
-[2019-09-18 12:37:56,812-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][40/9000] step_time: 0.332355 (0.391457)	train_loss: 0.104855 (0.217677)	test_loss: 0.080439 (0.201919)	train_metric: 0.073454 (0.024217)
-[2019-09-18 12:37:56,812-log_helper.py# 77] [INFO] Progress: 40 / 450000 [0%], Speed: 0.391 s/iter, ETA 2:00:55 (D:H:M)
+[2019-09-18 14:54:49,939-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][40/186884] step_time: 0.325024 (0.390925)	train_loss: 0.705032 (0.650462)	test_loss: 0.703754 (0.754136)	train_metric: 0.632030 (0.652420)
+[2019-09-18 14:54:49,939-log_helper.py# 77] [INFO] Progress: 40 / 9344200 [0%], Speed: 0.391 s/iter, ETA 42:06:41 (D:H:M)
 
-[2019-09-18 12:38:03,850-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][60/9000] step_time: 0.353796 (0.375182)	train_loss: 0.082987 (0.180787)	test_loss: 0.161481 (0.173862)	train_metric: 0.169510 (0.057604)
-[2019-09-18 12:38:03,850-log_helper.py# 77] [INFO] Progress: 60 / 450000 [0%], Speed: 0.375 s/iter, ETA 1:22:53 (D:H:M)
+[2019-09-18 14:54:56,857-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][60/186884] step_time: 0.365928 (0.374611)	train_loss: 0.749587 (0.650766)	test_loss: 0.757015 (0.746311)	train_metric: 0.698102 (0.654956)
+[2019-09-18 14:54:56,857-log_helper.py# 77] [INFO] Progress: 60 / 9344200 [0%], Speed: 0.375 s/iter, ETA 40:12:20 (D:H:M)
 
-[2019-09-18 12:38:10,886-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][80/9000] step_time: 0.342420 (0.366823)	train_loss: 0.094979 (0.162364)	test_loss: 0.124447 (0.156499)	train_metric: 0.261862 (0.098988)
-[2019-09-18 12:38:10,887-log_helper.py# 77] [INFO] Progress: 80 / 450000 [0%], Speed: 0.367 s/iter, ETA 1:21:50 (D:H:M)
+[2019-09-18 14:55:03,531-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][80/186884] step_time: 0.342730 (0.363407)	train_loss: 0.698763 (0.652654)	test_loss: 0.704605 (0.737109)	train_metric: 0.719438 (0.666852)
+[2019-09-18 14:55:03,531-log_helper.py# 77] [INFO] Progress: 80 / 9344200 [0%], Speed: 0.363 s/iter, ETA 39:07:15 (D:H:M)
 
-[2019-09-18 12:38:17,874-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][100/9000] step_time: 0.346223 (0.361481)	train_loss: 0.127589 (0.150063)	test_loss: 0.119158 (0.144957)	train_metric: 0.368859 (0.146176)
-[2019-09-18 12:38:17,874-log_helper.py# 77] [INFO] Progress: 100 / 450000 [0%], Speed: 0.361 s/iter, ETA 1:21:10 (D:H:M)
+[2019-09-18 14:55:10,395-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][100/186884] step_time: 0.322581 (0.358561)	train_loss: 0.609662 (0.657957)	test_loss: 0.693214 (0.729694)	train_metric: 0.631378 (0.665684)
+[2019-09-18 14:55:10,395-log_helper.py# 77] [INFO] Progress: 100 / 9344200 [0%], Speed: 0.359 s/iter, ETA 38:18:40 (D:H:M)
 
-[2019-09-18 12:38:24,970-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][120/9000] step_time: 0.329388 (0.358651)	train_loss: 0.095445 (0.142127)	test_loss: 0.107106 (0.136386)	train_metric: 0.462035 (0.192409)
-[2019-09-18 12:38:24,976-log_helper.py# 77] [INFO] Progress: 120 / 450000 [0%], Speed: 0.359 s/iter, ETA 1:20:49 (D:H:M)
+[2019-09-18 14:55:17,484-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][120/186884] step_time: 0.320231 (0.357220)	train_loss: 0.711436 (0.655228)	test_loss: 0.736374 (0.727588)	train_metric: 0.701539 (0.668283)
+[2019-09-18 14:55:17,484-log_helper.py# 77] [INFO] Progress: 120 / 9344200 [0%], Speed: 0.357 s/iter, ETA 38:15:11 (D:H:M)
 
-[2019-09-18 12:38:31,887-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][140/9000] step_time: 0.348980 (0.355527)	train_loss: 0.075004 (0.135778)	test_loss: 0.067239 (0.131511)	train_metric: 0.556190 (0.237647)
-[2019-09-18 12:38:31,887-log_helper.py# 77] [INFO] Progress: 140 / 450000 [0%], Speed: 0.356 s/iter, ETA 1:20:25 (D:H:M)
+[2019-09-18 14:55:24,316-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][140/186884] step_time: 0.326212 (0.354441)	train_loss: 0.702185 (0.656728)	test_loss: 0.676167 (0.725431)	train_metric: 0.767893 (0.676842)
+[2019-09-18 14:55:24,316-log_helper.py# 77] [INFO] Progress: 140 / 9344200 [0%], Speed: 0.354 s/iter, ETA 38:07:58 (D:H:M)
+
+[2019-09-18 14:55:31,197-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][160/186884] step_time: 0.338116 (0.352668)	train_loss: 0.689022 (0.659467)	test_loss: 0.701217 (0.721752)	train_metric: 0.686003 (0.674363)
+[2019-09-18 14:55:31,197-log_helper.py# 77] [INFO] Progress: 160 / 9344200 [0%], Speed: 0.353 s/iter, ETA 38:03:22 (D:H:M)
+
+[2019-09-18 14:55:37,944-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][180/186884] step_time: 0.328868 (0.350562)	train_loss: 0.693971 (0.659177)	test_loss: 0.709595 (0.719115)	train_metric: 0.755272 (0.679103)
+[2019-09-18 14:55:37,944-log_helper.py# 77] [INFO] Progress: 180 / 9344200 [0%], Speed: 0.351 s/iter, ETA 37:21:54 (D:H:M)
+
+[2019-09-18 14:55:46,409-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][200/186884] step_time: 0.362261 (0.349478)	train_loss: 0.724213 (0.658869)	test_loss: 0.729188 (0.718298)	train_metric: 0.801228 (0.681950)
+[2019-09-18 14:55:46,420-log_helper.py# 77] [INFO] Progress: 200 / 9344200 [0%], Speed: 0.349 s/iter, ETA 37:19:05 (D:H:M)
+
+[2019-09-18 14:55:53,454-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][220/186884] step_time: 0.360313 (0.349261)	train_loss: 0.642676 (0.659909)	test_loss: 0.688910 (0.716734)	train_metric: 0.673523 (0.684866)
+[2019-09-18 14:55:53,454-log_helper.py# 77] [INFO] Progress: 220 / 9344200 [0%], Speed: 0.349 s/iter, ETA 37:18:31 (D:H:M)
+
+[2019-09-18 14:56:00,186-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][240/186884] step_time: 0.328118 (0.347891)	train_loss: 0.704590 (0.660106)	test_loss: 0.658484 (0.715130)	train_metric: 0.650349 (0.688695)
+[2019-09-18 14:56:00,186-log_helper.py# 77] [INFO] Progress: 240 / 9344200 [0%], Speed: 0.348 s/iter, ETA 37:14:57 (D:H:M)
+
+[2019-09-18 14:56:06,844-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][260/186884] step_time: 0.327543 (0.346452)	train_loss: 0.829270 (0.651603)	test_loss: 0.804557 (0.718573)	train_metric: 0.526103 (0.689696)
+[2019-09-18 14:56:06,845-log_helper.py# 77] [INFO] Progress: 260 / 9344200 [0%], Speed: 0.346 s/iter, ETA 37:11:13 (D:H:M)
+
+[2019-09-18 14:56:13,492-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][280/186884] step_time: 0.329523 (0.345174)	train_loss: 0.735278 (0.651227)	test_loss: 0.701229 (0.722291)	train_metric: 0.648790 (0.687422)
+[2019-09-18 14:56:13,492-log_helper.py# 77] [INFO] Progress: 280 / 9344200 [0%], Speed: 0.345 s/iter, ETA 37:07:54 (D:H:M)
+
+[2019-09-18 14:56:20,162-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][300/186884] step_time: 0.327708 (0.344143)	train_loss: 0.696382 (0.651353)	test_loss: 0.785641 (0.722203)	train_metric: 0.621929 (0.687887)
+[2019-09-18 14:56:20,163-log_helper.py# 77] [INFO] Progress: 300 / 9344200 [0%], Speed: 0.344 s/iter, ETA 37:05:14 (D:H:M)
+
+[2019-09-18 14:56:26,823-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][320/186884] step_time: 0.326851 (0.343209)	train_loss: 0.694889 (0.647206)	test_loss: 0.781595 (0.722631)	train_metric: 0.757142 (0.691552)
+[2019-09-18 14:56:26,824-log_helper.py# 77] [INFO] Progress: 320 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:02:48 (D:H:M)
+
+[2019-09-18 14:56:33,527-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][340/186884] step_time: 0.331775 (0.342504)	train_loss: 0.758644 (0.649206)	test_loss: 0.691193 (0.721021)	train_metric: 0.619610 (0.689754)
+[2019-09-18 14:56:33,528-log_helper.py# 77] [INFO] Progress: 340 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:00:58 (D:H:M)
+
+[2019-09-18 14:56:40,402-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][360/186884] step_time: 0.341495 (0.342348)	train_loss: 0.695488 (0.650099)	test_loss: 0.701947 (0.720252)	train_metric: 0.708636 (0.689841)
+[2019-09-18 14:56:40,402-log_helper.py# 77] [INFO] Progress: 360 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:34 (D:H:M)
+
+[2019-09-18 14:56:47,256-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][380/186884] step_time: 0.342752 (0.342159)	train_loss: 0.459075 (0.649123)	test_loss: 0.681666 (0.719431)	train_metric: 0.741584 (0.691283)
+[2019-09-18 14:56:47,257-log_helper.py# 77] [INFO] Progress: 380 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:04 (D:H:M)
+
+[2019-09-18 14:56:54,312-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][400/186884] step_time: 0.331604 (0.342029)	train_loss: 0.554359 (0.648302)	test_loss: 0.660817 (0.718903)	train_metric: 0.545888 (0.691420)
+[2019-09-18 14:56:54,312-log_helper.py# 77] [INFO] Progress: 400 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:44 (D:H:M)
+
+[2019-09-18 14:57:01,194-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][420/186884] step_time: 0.335888 (0.341942)	train_loss: 0.544910 (0.649137)	test_loss: 0.691596 (0.718279)	train_metric: 0.750356 (0.693156)
+[2019-09-18 14:57:01,194-log_helper.py# 77] [INFO] Progress: 420 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:30 (D:H:M)
+
+[2019-09-18 14:57:08,113-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][440/186884] step_time: 0.357398 (0.341952)	train_loss: 0.623607 (0.648168)	test_loss: 0.781761 (0.718552)	train_metric: 0.722056 (0.694793)
+[2019-09-18 14:57:08,114-log_helper.py# 77] [INFO] Progress: 440 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:31 (D:H:M)
+
+[2019-09-18 14:57:15,241-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][460/186884] step_time: 0.326790 (0.342401)	train_loss: 0.604105 (0.648317)	test_loss: 0.752652 (0.718479)	train_metric: 0.590202 (0.696774)
+[2019-09-18 14:57:15,241-log_helper.py# 77] [INFO] Progress: 460 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:41 (D:H:M)
+
+[2019-09-18 14:57:22,112-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][480/186884] step_time: 0.344495 (0.342278)	train_loss: 0.425265 (0.648289)	test_loss: 0.756242 (0.718228)	train_metric: 0.761326 (0.697923)
+[2019-09-18 14:57:22,112-log_helper.py# 77] [INFO] Progress: 480 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:22 (D:H:M)
+
+[2019-09-18 14:57:28,910-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][500/186884] step_time: 0.330012 (0.342030)	train_loss: 0.376890 (0.645566)	test_loss: 0.669748 (0.718448)	train_metric: 0.746557 (0.700582)
+[2019-09-18 14:57:28,911-log_helper.py# 77] [INFO] Progress: 500 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:43 (D:H:M)
+
+[2019-09-18 14:57:35,588-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][520/186884] step_time: 0.332534 (0.341573)	train_loss: 0.489950 (0.643250)	test_loss: 0.758088 (0.719873)	train_metric: 0.697546 (0.702059)
+[2019-09-18 14:57:35,588-log_helper.py# 77] [INFO] Progress: 520 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:32 (D:H:M)
+
+[2019-09-18 14:57:42,264-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][540/186884] step_time: 0.332781 (0.341147)	train_loss: 0.733589 (0.644587)	test_loss: 0.689811 (0.721462)	train_metric: 0.687096 (0.701822)
+[2019-09-18 14:57:42,264-log_helper.py# 77] [INFO] Progress: 540 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:25 (D:H:M)
+
+[2019-09-18 14:57:49,106-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][560/186884] step_time: 0.325249 (0.341042)	train_loss: 0.701638 (0.644935)	test_loss: 0.744144 (0.720296)	train_metric: 0.613428 (0.703259)
+[2019-09-18 14:57:49,106-log_helper.py# 77] [INFO] Progress: 560 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:09 (D:H:M)
+
+[2019-09-18 14:57:56,151-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][580/186884] step_time: 0.351255 (0.341286)	train_loss: 0.498550 (0.644607)	test_loss: 0.710355 (0.719491)	train_metric: 0.714513 (0.704282)
+[2019-09-18 14:57:56,151-log_helper.py# 77] [INFO] Progress: 580 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:47 (D:H:M)
+
+[2019-09-18 14:58:03,279-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][600/186884] step_time: 0.330402 (0.341356)	train_loss: 0.642661 (0.644646)	test_loss: 0.682568 (0.718929)	train_metric: 0.423996 (0.704366)
+[2019-09-18 14:58:03,279-log_helper.py# 77] [INFO] Progress: 600 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:58 (D:H:M)
+
+[2019-09-18 14:58:10,190-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][620/186884] step_time: 0.350517 (0.341366)	train_loss: 0.732954 (0.644604)	test_loss: 0.710484 (0.718348)	train_metric: 0.764885 (0.704025)
+[2019-09-18 14:58:10,190-log_helper.py# 77] [INFO] Progress: 620 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:59 (D:H:M)
+
+[2019-09-18 14:58:17,084-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][640/186884] step_time: 0.327558 (0.341352)	train_loss: 0.672510 (0.643831)	test_loss: 0.740274 (0.718899)	train_metric: 0.816277 (0.705024)
+[2019-09-18 14:58:17,084-log_helper.py# 77] [INFO] Progress: 640 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:57 (D:H:M)
+
+[2019-09-18 14:58:23,815-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][660/186884] step_time: 0.334197 (0.341089)	train_loss: 0.698336 (0.644496)	test_loss: 0.692642 (0.718993)	train_metric: 0.766523 (0.705627)
+[2019-09-18 14:58:23,815-log_helper.py# 77] [INFO] Progress: 660 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:16 (D:H:M)
+
+[2019-09-18 14:58:30,654-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][680/186884] step_time: 0.341605 (0.341003)	train_loss: 0.714170 (0.645157)	test_loss: 0.686007 (0.718547)	train_metric: 0.733276 (0.706032)
+[2019-09-18 14:58:30,655-log_helper.py# 77] [INFO] Progress: 680 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:02 (D:H:M)
+
+[2019-09-18 14:58:37,676-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][700/186884] step_time: 0.342468 (0.341181)	train_loss: 0.526295 (0.645492)	test_loss: 0.714966 (0.717509)	train_metric: 0.641062 (0.705742)
+[2019-09-18 14:58:37,676-log_helper.py# 77] [INFO] Progress: 700 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:30 (D:H:M)
+
+[2019-09-18 14:58:44,363-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][720/186884] step_time: 0.351441 (0.340888)	train_loss: 0.737629 (0.646042)	test_loss: 0.697693 (0.717112)	train_metric: 0.673805 (0.705640)
+[2019-09-18 14:58:44,363-log_helper.py# 77] [INFO] Progress: 720 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:44 (D:H:M)
+
+[2019-09-18 14:58:51,013-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][740/186884] step_time: 0.320224 (0.340550)	train_loss: 0.527757 (0.646331)	test_loss: 0.693957 (0.716380)	train_metric: 0.702426 (0.706620)
+[2019-09-18 14:58:51,013-log_helper.py# 77] [INFO] Progress: 740 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:19:51 (D:H:M)
+
+[2019-09-18 14:58:57,664-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][760/186884] step_time: 0.325731 (0.340239)	train_loss: 0.720300 (0.646139)	test_loss: 0.693440 (0.716716)	train_metric: 0.679519 (0.707454)
+[2019-09-18 14:58:57,664-log_helper.py# 77] [INFO] Progress: 760 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:03 (D:H:M)
+
+[2019-09-18 14:59:04,280-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][780/186884] step_time: 0.338799 (0.339903)	train_loss: 0.752751 (0.644377)	test_loss: 0.825015 (0.717005)	train_metric: 0.753655 (0.708552)
+[2019-09-18 14:59:04,281-log_helper.py# 77] [INFO] Progress: 780 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:10 (D:H:M)
+
+[2019-09-18 14:59:11,211-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][800/186884] step_time: 0.332133 (0.339719)	train_loss: 0.560865 (0.642237)	test_loss: 0.770177 (0.719286)	train_metric: 0.739026 (0.709522)
+[2019-09-18 14:59:11,211-log_helper.py# 77] [INFO] Progress: 800 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:42 (D:H:M)
+
+[2019-09-18 14:59:17,909-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][820/186884] step_time: 0.321504 (0.339511)	train_loss: 0.704266 (0.641766)	test_loss: 0.709862 (0.719648)	train_metric: 0.643010 (0.709938)
+[2019-09-18 14:59:17,909-log_helper.py# 77] [INFO] Progress: 820 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:09 (D:H:M)
+
+[2019-09-18 14:59:24,527-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][840/186884] step_time: 0.320519 (0.339218)	train_loss: 0.689155 (0.642408)	test_loss: 0.675148 (0.719547)	train_metric: 0.645189 (0.710892)
+[2019-09-18 14:59:24,528-log_helper.py# 77] [INFO] Progress: 840 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:23 (D:H:M)
+
+[2019-09-18 14:59:31,113-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][860/186884] step_time: 0.323160 (0.338903)	train_loss: 0.726251 (0.641878)	test_loss: 0.751375 (0.719551)	train_metric: 0.667097 (0.711387)
+[2019-09-18 14:59:31,114-log_helper.py# 77] [INFO] Progress: 860 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:34 (D:H:M)
+
+[2019-09-18 14:59:37,721-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][880/186884] step_time: 0.322946 (0.338622)	train_loss: 0.806910 (0.640650)	test_loss: 0.837398 (0.720516)	train_metric: 0.612515 (0.711691)
+[2019-09-18 14:59:37,721-log_helper.py# 77] [INFO] Progress: 880 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:14:50 (D:H:M)
+
+[2019-09-18 14:59:44,405-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][900/186884] step_time: 0.361146 (0.338439)	train_loss: 0.600179 (0.639960)	test_loss: 0.623951 (0.720080)	train_metric: 0.688135 (0.711709)
+[2019-09-18 14:59:44,629-log_helper.py# 77] [INFO] Progress: 900 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:22 (D:H:M)
+
+[2019-09-18 14:59:51,389-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][920/186884] step_time: 0.326705 (0.338348)	train_loss: 0.367926 (0.638655)	test_loss: 0.696554 (0.719794)	train_metric: 0.794559 (0.712247)
+[2019-09-18 14:59:51,389-log_helper.py# 77] [INFO] Progress: 920 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:07 (D:H:M)
+
+[2019-09-18 14:59:58,221-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][940/186884] step_time: 0.328056 (0.338338)	train_loss: 0.460637 (0.637110)	test_loss: 0.706048 (0.719162)	train_metric: 0.783932 (0.713101)
+[2019-09-18 14:59:58,221-log_helper.py# 77] [INFO] Progress: 940 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:06 (D:H:M)
+
+[2019-09-18 15:00:05,211-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][960/186884] step_time: 0.333569 (0.338488)	train_loss: 0.544254 (0.636465)	test_loss: 0.684148 (0.718836)	train_metric: 0.602092 (0.712778)
+[2019-09-18 15:00:05,211-log_helper.py# 77] [INFO] Progress: 960 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:29 (D:H:M)
+
+[2019-09-18 15:00:11,890-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][980/186884] step_time: 0.334288 (0.338314)	train_loss: 0.724455 (0.636037)	test_loss: 0.693153 (0.718335)	train_metric: 0.692899 (0.713573)
+[2019-09-18 15:00:11,890-log_helper.py# 77] [INFO] Progress: 980 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:02 (D:H:M)
+
+[2019-09-18 15:00:18,839-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1000/186884] step_time: 0.336447 (0.338246)	train_loss: 0.779174 (0.635582)	test_loss: 0.946605 (0.718537)	train_metric: 0.587165 (0.714475)
+[2019-09-18 15:00:18,839-log_helper.py# 77] [INFO] Progress: 1000 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:13:51 (D:H:M)
+
+[2019-09-18 15:00:25,975-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1020/186884] step_time: 0.360772 (0.338534)	train_loss: 0.694328 (0.634908)	test_loss: 0.656792 (0.718328)	train_metric: 0.680472 (0.714927)
+[2019-09-18 15:00:25,976-log_helper.py# 77] [INFO] Progress: 1020 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:14:36 (D:H:M)
+
+[2019-09-18 15:00:32,795-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1040/186884] step_time: 0.330965 (0.338509)	train_loss: 0.695144 (0.633879)	test_loss: 0.683907 (0.717665)	train_metric: 0.728950 (0.716356)
+[2019-09-18 15:00:32,796-log_helper.py# 77] [INFO] Progress: 1040 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:14:32 (D:H:M)
+
+[2019-09-18 15:00:39,550-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1060/186884] step_time: 0.336396 (0.338425)	train_loss: 0.674261 (0.633220)	test_loss: 0.691664 (0.717206)	train_metric: 0.872526 (0.717470)
+[2019-09-18 15:00:39,550-log_helper.py# 77] [INFO] Progress: 1060 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:19 (D:H:M)
+
+[2019-09-18 15:00:46,327-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1080/186884] step_time: 0.344196 (0.338364)	train_loss: 0.663008 (0.632017)	test_loss: 0.695228 (0.716542)	train_metric: 0.850566 (0.718616)
+[2019-09-18 15:00:46,327-log_helper.py# 77] [INFO] Progress: 1080 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:09 (D:H:M)
+
+[2019-09-18 15:00:53,110-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1100/186884] step_time: 0.340802 (0.338309)	train_loss: 0.658749 (0.631997)	test_loss: 0.664278 (0.717305)	train_metric: 0.775733 (0.719373)
+[2019-09-18 15:00:53,110-log_helper.py# 77] [INFO] Progress: 1100 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:00 (D:H:M)
+
+[2019-09-18 15:00:59,860-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1120/186884] step_time: 0.337368 (0.338229)	train_loss: 0.695592 (0.632056)	test_loss: 0.716024 (0.716920)	train_metric: 0.663405 (0.719508)
+[2019-09-18 15:00:59,860-log_helper.py# 77] [INFO] Progress: 1120 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:13:48 (D:H:M)
+
+[2019-09-18 15:01:06,615-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1140/186884] step_time: 0.336736 (0.338152)	train_loss: 0.678107 (0.632063)	test_loss: 0.694422 (0.716378)	train_metric: 0.731002 (0.719923)
+[2019-09-18 15:01:06,615-log_helper.py# 77] [INFO] Progress: 1140 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:13:36 (D:H:M)
+
+[2019-09-18 15:01:13,631-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1160/186884] step_time: 0.325226 (0.338303)	train_loss: 0.439417 (0.630789)	test_loss: 0.908915 (0.716867)	train_metric: 0.696818 (0.720913)
+[2019-09-18 15:01:13,631-log_helper.py# 77] [INFO] Progress: 1160 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:13:59 (D:H:M)
+
+[2019-09-18 15:01:20,667-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1180/186884] step_time: 0.349917 (0.338465)	train_loss: 0.670865 (0.630503)	test_loss: 0.686611 (0.716239)	train_metric: 0.783299 (0.721519)
+[2019-09-18 15:01:20,667-log_helper.py# 77] [INFO] Progress: 1180 / 9344200 [0%], Speed: 0.338 s/iter, ETA 36:14:24 (D:H:M)
+
+[2019-09-18 15:01:27,970-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1200/186884] step_time: 0.362407 (0.338706)	train_loss: 0.676892 (0.629714)	test_loss: 0.686181 (0.715627)	train_metric: 0.840240 (0.722423)
+[2019-09-18 15:01:27,981-log_helper.py# 77] [INFO] Progress: 1200 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:02 (D:H:M)
+
+[2019-09-18 15:01:35,004-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1220/186884] step_time: 0.345468 (0.338837)	train_loss: 0.390380 (0.629406)	test_loss: 0.688224 (0.715045)	train_metric: 0.767983 (0.723250)
+[2019-09-18 15:01:35,004-log_helper.py# 77] [INFO] Progress: 1220 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:22 (D:H:M)
+
+[2019-09-18 15:01:42,263-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1240/186884] step_time: 0.382801 (0.339156)	train_loss: 0.679508 (0.628850)	test_loss: 0.687383 (0.714595)	train_metric: 0.758646 (0.723941)
+[2019-09-18 15:01:42,263-log_helper.py# 77] [INFO] Progress: 1240 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:12 (D:H:M)
+
+[2019-09-18 15:01:49,432-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1260/186884] step_time: 0.348366 (0.339395)	train_loss: 0.667521 (0.628094)	test_loss: 0.690587 (0.714084)	train_metric: 0.875762 (0.725135)
+[2019-09-18 15:01:49,432-log_helper.py# 77] [INFO] Progress: 1260 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:49 (D:H:M)
+
+[2019-09-18 15:01:56,514-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1280/186884] step_time: 0.363514 (0.339564)	train_loss: 0.677752 (0.628134)	test_loss: 0.682729 (0.713557)	train_metric: 0.821317 (0.726152)
+[2019-09-18 15:01:56,515-log_helper.py# 77] [INFO] Progress: 1280 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:15 (D:H:M)
+
+[2019-09-18 15:02:03,596-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1300/186884] step_time: 0.358074 (0.339724)	train_loss: 0.429435 (0.627243)	test_loss: 0.689146 (0.713027)	train_metric: 0.839271 (0.727396)
+[2019-09-18 15:02:03,597-log_helper.py# 77] [INFO] Progress: 1300 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:40 (D:H:M)
+
+[2019-09-18 15:02:10,607-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1320/186884] step_time: 0.325676 (0.339829)	train_loss: 0.663904 (0.627961)	test_loss: 0.660934 (0.712561)	train_metric: 0.833197 (0.728431)
+[2019-09-18 15:02:10,607-log_helper.py# 77] [INFO] Progress: 1320 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:56 (D:H:M)
+
+[2019-09-18 15:02:17,279-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1340/186884] step_time: 0.326099 (0.339680)	train_loss: 0.672247 (0.626640)	test_loss: 0.690298 (0.712100)	train_metric: 0.900709 (0.729749)
+[2019-09-18 15:02:17,279-log_helper.py# 77] [INFO] Progress: 1340 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:33 (D:H:M)
+
+[2019-09-18 15:02:23,990-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1360/186884] step_time: 0.331624 (0.339563)	train_loss: 0.675758 (0.625801)	test_loss: 0.697068 (0.711678)	train_metric: 0.858995 (0.730934)
+[2019-09-18 15:02:23,990-log_helper.py# 77] [INFO] Progress: 1360 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:14 (D:H:M)
+
+[2019-09-18 15:02:30,869-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1380/186884] step_time: 0.326340 (0.339570)	train_loss: 0.680005 (0.625467)	test_loss: 0.688249 (0.711285)	train_metric: 0.876767 (0.731401)
+[2019-09-18 15:02:30,869-log_helper.py# 77] [INFO] Progress: 1380 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:15 (D:H:M)
+
+[2019-09-18 15:02:38,108-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1400/186884] step_time: 0.326065 (0.339700)	train_loss: 0.681127 (0.625200)	test_loss: 0.656816 (0.710938)	train_metric: 0.657701 (0.732169)
+[2019-09-18 15:02:38,109-log_helper.py# 77] [INFO] Progress: 1400 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:35 (D:H:M)
+
+[2019-09-18 15:02:45,164-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1420/186884] step_time: 0.334243 (0.339827)	train_loss: 0.682113 (0.624529)	test_loss: 0.689582 (0.710516)	train_metric: 0.752131 (0.733044)
+[2019-09-18 15:02:45,165-log_helper.py# 77] [INFO] Progress: 1420 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:55 (D:H:M)
+
+[2019-09-18 15:02:52,303-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1440/186884] step_time: 0.340621 (0.340008)	train_loss: 0.687102 (0.624059)	test_loss: 0.710522 (0.710150)	train_metric: 0.753485 (0.733835)
+[2019-09-18 15:02:52,304-log_helper.py# 77] [INFO] Progress: 1440 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:23 (D:H:M)
+
+[2019-09-18 15:02:59,411-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1460/186884] step_time: 0.372243 (0.340167)	train_loss: 0.332800 (0.622785)	test_loss: 0.664642 (0.709726)	train_metric: 0.887718 (0.734974)
+[2019-09-18 15:02:59,412-log_helper.py# 77] [INFO] Progress: 1460 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:48 (D:H:M)
+
+[2019-09-18 15:03:06,598-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1480/186884] step_time: 0.357926 (0.340370)	train_loss: 0.689430 (0.622402)	test_loss: 0.680774 (0.709453)	train_metric: 0.778945 (0.735702)
+[2019-09-18 15:03:06,598-log_helper.py# 77] [INFO] Progress: 1480 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:19 (D:H:M)
+
+[2019-09-18 15:03:13,909-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1500/186884] step_time: 0.339111 (0.340653)	train_loss: 0.675773 (0.621979)	test_loss: 0.667480 (0.709063)	train_metric: 0.880763 (0.736269)
+[2019-09-18 15:03:13,909-log_helper.py# 77] [INFO] Progress: 1500 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:03 (D:H:M)
+
+[2019-09-18 15:03:21,057-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1520/186884] step_time: 0.364453 (0.340820)	train_loss: 0.672631 (0.622101)	test_loss: 0.674089 (0.708602)	train_metric: 0.831880 (0.736987)
+[2019-09-18 15:03:21,057-log_helper.py# 77] [INFO] Progress: 1520 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:29 (D:H:M)
+
+[2019-09-18 15:03:28,037-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1540/186884] step_time: 0.352865 (0.340879)	train_loss: 0.689946 (0.621799)	test_loss: 0.699086 (0.708267)	train_metric: 0.653978 (0.737975)
+[2019-09-18 15:03:28,037-log_helper.py# 77] [INFO] Progress: 1540 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:38 (D:H:M)
+
+[2019-09-18 15:03:35,172-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1560/186884] step_time: 0.331213 (0.341029)	train_loss: 0.421284 (0.620587)	test_loss: 0.663021 (0.707866)	train_metric: 0.763609 (0.738657)
+[2019-09-18 15:03:35,173-log_helper.py# 77] [INFO] Progress: 1560 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:01 (D:H:M)
+
+[2019-09-18 15:03:41,732-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1580/186884] step_time: 0.354648 (0.340815)	train_loss: 0.668576 (0.619944)	test_loss: 0.687252 (0.707630)	train_metric: 0.873309 (0.739442)
+[2019-09-18 15:03:41,732-log_helper.py# 77] [INFO] Progress: 1580 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:28 (D:H:M)
+
+[2019-09-18 15:03:48,438-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1600/186884] step_time: 0.320349 (0.340596)	train_loss: 0.297780 (0.619581)	test_loss: 0.655914 (0.707292)	train_metric: 0.912116 (0.740484)
+[2019-09-18 15:03:48,438-log_helper.py# 77] [INFO] Progress: 1600 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:19:54 (D:H:M)
+
+[2019-09-18 15:03:55,007-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1620/186884] step_time: 0.320436 (0.340397)	train_loss: 0.323908 (0.619266)	test_loss: 0.692299 (0.706987)	train_metric: 0.837286 (0.741165)
+[2019-09-18 15:03:55,008-log_helper.py# 77] [INFO] Progress: 1620 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:23 (D:H:M)
+
+[2019-09-18 15:04:01,695-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1640/186884] step_time: 0.346338 (0.340280)	train_loss: 0.308891 (0.619155)	test_loss: 0.683858 (0.706657)	train_metric: 0.870512 (0.741726)
+[2019-09-18 15:04:01,695-log_helper.py# 77] [INFO] Progress: 1640 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:04 (D:H:M)
+
+[2019-09-18 15:04:08,740-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1660/186884] step_time: 0.330658 (0.340381)	train_loss: 0.421766 (0.618985)	test_loss: 0.689872 (0.706273)	train_metric: 0.856727 (0.742567)
+[2019-09-18 15:04:08,741-log_helper.py# 77] [INFO] Progress: 1660 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:20 (D:H:M)
+
+[2019-09-18 15:04:15,354-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1680/186884] step_time: 0.321047 (0.340220)	train_loss: 0.653995 (0.618826)	test_loss: 0.682240 (0.705931)	train_metric: 0.851771 (0.743323)
+[2019-09-18 15:04:15,354-log_helper.py# 77] [INFO] Progress: 1680 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:55 (D:H:M)
+
+[2019-09-18 15:04:21,918-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1700/186884] step_time: 0.320628 (0.340035)	train_loss: 0.642566 (0.617922)	test_loss: 0.700911 (0.705664)	train_metric: 0.871956 (0.744413)
+[2019-09-18 15:04:21,918-log_helper.py# 77] [INFO] Progress: 1700 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:26 (D:H:M)
+
+[2019-09-18 15:04:28,429-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1720/186884] step_time: 0.337839 (0.339823)	train_loss: 0.660722 (0.617243)	test_loss: 0.662977 (0.705349)	train_metric: 0.861413 (0.745253)
+[2019-09-18 15:04:28,429-log_helper.py# 77] [INFO] Progress: 1720 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:53 (D:H:M)
+
+[2019-09-18 15:04:35,478-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1740/186884] step_time: 0.360383 (0.339923)	train_loss: 0.691947 (0.616715)	test_loss: 0.666526 (0.705011)	train_metric: 0.654306 (0.745684)
+[2019-09-18 15:04:35,478-log_helper.py# 77] [INFO] Progress: 1740 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:08 (D:H:M)
+
+[2019-09-18 15:04:42,389-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1760/186884] step_time: 0.337389 (0.339943)	train_loss: 0.684209 (0.616016)	test_loss: 0.667292 (0.704714)	train_metric: 0.769740 (0.746238)
+[2019-09-18 15:04:42,389-log_helper.py# 77] [INFO] Progress: 1760 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:11 (D:H:M)
+
+[2019-09-18 15:04:49,033-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1780/186884] step_time: 0.323096 (0.339814)	train_loss: 0.428084 (0.615242)	test_loss: 0.686182 (0.704434)	train_metric: 0.861977 (0.747294)
+[2019-09-18 15:04:49,033-log_helper.py# 77] [INFO] Progress: 1780 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:51 (D:H:M)
+
+[2019-09-18 15:04:56,130-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1800/186884] step_time: 0.399143 (0.339826)	train_loss: 0.433885 (0.614590)	test_loss: 0.699783 (0.704149)	train_metric: 0.835313 (0.747975)
+[2019-09-18 15:04:56,131-log_helper.py# 77] [INFO] Progress: 1800 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:53 (D:H:M)
+
+[2019-09-18 15:05:03,284-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1820/186884] step_time: 0.352691 (0.339977)	train_loss: 0.686760 (0.614240)	test_loss: 0.693115 (0.703939)	train_metric: 0.753715 (0.748748)
+[2019-09-18 15:05:03,284-log_helper.py# 77] [INFO] Progress: 1820 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:16 (D:H:M)
+
+[2019-09-18 15:05:09,916-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1840/186884] step_time: 0.320302 (0.339843)	train_loss: 0.320792 (0.613419)	test_loss: 0.664572 (0.703682)	train_metric: 0.801132 (0.749438)
+[2019-09-18 15:05:09,916-log_helper.py# 77] [INFO] Progress: 1840 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:55 (D:H:M)
+
+[2019-09-18 15:05:16,468-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1860/186884] step_time: 0.324326 (0.339670)	train_loss: 0.691821 (0.612435)	test_loss: 0.693085 (0.703513)	train_metric: 0.733716 (0.750076)
+[2019-09-18 15:05:16,468-log_helper.py# 77] [INFO] Progress: 1860 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:28 (D:H:M)
+
+[2019-09-18 15:05:23,029-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1880/186884] step_time: 0.320946 (0.339505)	train_loss: 0.663650 (0.612264)	test_loss: 0.654045 (0.703229)	train_metric: 0.852761 (0.750837)
+[2019-09-18 15:05:23,029-log_helper.py# 77] [INFO] Progress: 1880 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:02 (D:H:M)
+
+[2019-09-18 15:05:29,588-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1900/186884] step_time: 0.320462 (0.339342)	train_loss: 0.658305 (0.611881)	test_loss: 0.702369 (0.702931)	train_metric: 0.797013 (0.751270)
+[2019-09-18 15:05:29,589-log_helper.py# 77] [INFO] Progress: 1900 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:37 (D:H:M)
+
+[2019-09-18 15:05:36,487-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1920/186884] step_time: 0.337426 (0.339359)	train_loss: 0.710683 (0.611742)	test_loss: 0.692885 (0.703190)	train_metric: 0.743645 (0.751824)
+[2019-09-18 15:05:36,487-log_helper.py# 77] [INFO] Progress: 1920 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:39 (D:H:M)
+
+[2019-09-18 15:05:43,239-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1940/186884] step_time: 0.334291 (0.339302)	train_loss: 0.398263 (0.612076)	test_loss: 0.708589 (0.702965)	train_metric: 0.812421 (0.752197)
+[2019-09-18 15:05:43,240-log_helper.py# 77] [INFO] Progress: 1940 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:30 (D:H:M)
+
+[2019-09-18 15:05:50,051-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1960/186884] step_time: 0.330553 (0.339276)	train_loss: 0.676461 (0.612478)	test_loss: 0.666192 (0.702931)	train_metric: 0.723193 (0.751513)
+[2019-09-18 15:05:50,051-log_helper.py# 77] [INFO] Progress: 1960 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:26 (D:H:M)
+
+[2019-09-18 15:05:56,853-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][1980/186884] step_time: 0.321968 (0.339248)	train_loss: 0.681834 (0.612052)	test_loss: 1.068004 (0.703063)	train_metric: 0.803224 (0.751407)
+[2019-09-18 15:05:56,854-log_helper.py# 77] [INFO] Progress: 1980 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:22 (D:H:M)
+
+[2019-09-18 15:06:04,026-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2000/186884] step_time: 0.382112 (0.339322)	train_loss: 0.473564 (0.612679)	test_loss: 0.763582 (0.703435)	train_metric: 0.779059 (0.751138)
+[2019-09-18 15:06:04,026-log_helper.py# 77] [INFO] Progress: 2000 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:33 (D:H:M)
+
+[2019-09-18 15:06:10,906-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2020/186884] step_time: 0.330272 (0.339332)	train_loss: 0.724166 (0.613190)	test_loss: 0.745659 (0.703486)	train_metric: 0.752029 (0.750356)
+[2019-09-18 15:06:10,907-log_helper.py# 77] [INFO] Progress: 2020 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:35 (D:H:M)
+
+[2019-09-18 15:06:17,700-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2040/186884] step_time: 0.328058 (0.339296)	train_loss: 0.733606 (0.613360)	test_loss: 0.718025 (0.703615)	train_metric: 0.641657 (0.749719)
+[2019-09-18 15:06:17,700-log_helper.py# 77] [INFO] Progress: 2040 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:29 (D:H:M)
+
+[2019-09-18 15:06:24,404-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2060/186884] step_time: 0.327595 (0.339220)	train_loss: 0.670299 (0.613747)	test_loss: 0.679352 (0.703701)	train_metric: 0.797192 (0.749082)
+[2019-09-18 15:06:24,404-log_helper.py# 77] [INFO] Progress: 2060 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:17 (D:H:M)
+
+[2019-09-18 15:06:31,134-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2080/186884] step_time: 0.330226 (0.339156)	train_loss: 0.331636 (0.613466)	test_loss: 0.696010 (0.703749)	train_metric: 0.756392 (0.748847)
+[2019-09-18 15:06:31,135-log_helper.py# 77] [INFO] Progress: 2080 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:07 (D:H:M)
+
+[2019-09-18 15:06:37,851-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2100/186884] step_time: 0.333279 (0.339089)	train_loss: 0.679610 (0.613522)	test_loss: 0.671792 (0.703519)	train_metric: 0.714956 (0.748960)
+[2019-09-18 15:06:37,851-log_helper.py# 77] [INFO] Progress: 2100 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:56 (D:H:M)
+
+[2019-09-18 15:06:44,587-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2120/186884] step_time: 0.331695 (0.339032)	train_loss: 0.637338 (0.613062)	test_loss: 0.691025 (0.703553)	train_metric: 0.728809 (0.749325)
+[2019-09-18 15:06:44,587-log_helper.py# 77] [INFO] Progress: 2120 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:47 (D:H:M)
+
+[2019-09-18 15:06:51,503-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2140/186884] step_time: 0.358788 (0.339058)	train_loss: 0.667919 (0.612593)	test_loss: 0.700078 (0.703625)	train_metric: 0.773856 (0.749447)
+[2019-09-18 15:06:51,504-log_helper.py# 77] [INFO] Progress: 2140 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:15:51 (D:H:M)
+
+[2019-09-18 15:06:58,600-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2160/186884] step_time: 0.349786 (0.339165)	train_loss: 0.696982 (0.613101)	test_loss: 0.693890 (0.703417)	train_metric: 0.766265 (0.749118)
+[2019-09-18 15:06:58,600-log_helper.py# 77] [INFO] Progress: 2160 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:08 (D:H:M)
+
+[2019-09-18 15:07:05,616-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2180/186884] step_time: 0.331141 (0.339235)	train_loss: 0.677303 (0.613621)	test_loss: 0.685683 (0.703517)	train_metric: 0.818615 (0.748990)
+[2019-09-18 15:07:05,617-log_helper.py# 77] [INFO] Progress: 2180 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:18 (D:H:M)
+
+[2019-09-18 15:07:12,825-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2200/186884] step_time: 0.356738 (0.339341)	train_loss: 0.711069 (0.613922)	test_loss: 0.700337 (0.703496)	train_metric: 0.720510 (0.749076)
+[2019-09-18 15:07:13,117-log_helper.py# 77] [INFO] Progress: 2200 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:35 (D:H:M)
+
+[2019-09-18 15:07:20,139-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2220/186884] step_time: 0.368811 (0.339377)	train_loss: 0.709340 (0.614340)	test_loss: 0.703405 (0.703536)	train_metric: 0.599064 (0.749145)
+[2019-09-18 15:07:20,140-log_helper.py# 77] [INFO] Progress: 2220 / 9344200 [0%], Speed: 0.339 s/iter, ETA 36:16:40 (D:H:M)
+
+[2019-09-18 15:07:27,441-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2240/186884] step_time: 0.367907 (0.339569)	train_loss: 0.677962 (0.614681)	test_loss: 0.668346 (0.703465)	train_metric: 0.734473 (0.748942)
+[2019-09-18 15:07:27,441-log_helper.py# 77] [INFO] Progress: 2240 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:10 (D:H:M)
+
+[2019-09-18 15:07:34,756-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2260/186884] step_time: 0.365262 (0.339764)	train_loss: 0.491446 (0.614614)	test_loss: 0.759972 (0.703481)	train_metric: 0.642830 (0.748549)
+[2019-09-18 15:07:34,756-log_helper.py# 77] [INFO] Progress: 2260 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:17:40 (D:H:M)
+
+[2019-09-18 15:07:41,996-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2280/186884] step_time: 0.346244 (0.339922)	train_loss: 0.546154 (0.614915)	test_loss: 0.710608 (0.703990)	train_metric: 0.577262 (0.747637)
+[2019-09-18 15:07:41,996-log_helper.py# 77] [INFO] Progress: 2280 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:05 (D:H:M)
+
+[2019-09-18 15:07:48,968-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2300/186884] step_time: 0.347959 (0.339963)	train_loss: 0.366056 (0.614655)	test_loss: 0.774280 (0.704509)	train_metric: 0.771952 (0.747273)
+[2019-09-18 15:07:48,969-log_helper.py# 77] [INFO] Progress: 2300 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:11 (D:H:M)
+
+[2019-09-18 15:07:55,979-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2320/186884] step_time: 0.349692 (0.340017)	train_loss: 0.691247 (0.615118)	test_loss: 0.689029 (0.704589)	train_metric: 0.766853 (0.746675)
+[2019-09-18 15:07:55,979-log_helper.py# 77] [INFO] Progress: 2320 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:19 (D:H:M)
+
+[2019-09-18 15:08:03,107-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2340/186884] step_time: 0.354638 (0.340124)	train_loss: 0.683198 (0.615275)	test_loss: 0.669649 (0.704653)	train_metric: 0.774161 (0.746473)
+[2019-09-18 15:08:03,107-log_helper.py# 77] [INFO] Progress: 2340 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:18:36 (D:H:M)
+
+[2019-09-18 15:08:10,421-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2360/186884] step_time: 0.350204 (0.340305)	train_loss: 0.678708 (0.615543)	test_loss: 0.690328 (0.705077)	train_metric: 0.756995 (0.746159)
+[2019-09-18 15:08:10,421-log_helper.py# 77] [INFO] Progress: 2360 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:04 (D:H:M)
+
+[2019-09-18 15:08:17,782-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2380/186884] step_time: 0.357844 (0.340499)	train_loss: 0.697740 (0.615646)	test_loss: 0.702461 (0.705154)	train_metric: 0.680055 (0.745879)
+[2019-09-18 15:08:17,782-log_helper.py# 77] [INFO] Progress: 2380 / 9344200 [0%], Speed: 0.340 s/iter, ETA 36:19:34 (D:H:M)
+
+[2019-09-18 15:08:25,197-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2400/186884] step_time: 0.346995 (0.340639)	train_loss: 0.672206 (0.615764)	test_loss: 0.669343 (0.705044)	train_metric: 0.814767 (0.745863)
+[2019-09-18 15:08:25,198-log_helper.py# 77] [INFO] Progress: 2400 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:19:56 (D:H:M)
+
+[2019-09-18 15:08:32,176-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2420/186884] step_time: 0.349961 (0.340675)	train_loss: 0.554206 (0.615945)	test_loss: 0.691742 (0.705315)	train_metric: 0.636597 (0.745688)
+[2019-09-18 15:08:32,176-log_helper.py# 77] [INFO] Progress: 2420 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:01 (D:H:M)
+
+[2019-09-18 15:08:39,431-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2440/186884] step_time: 0.367389 (0.340824)	train_loss: 0.659442 (0.615977)	test_loss: 0.665414 (0.705454)	train_metric: 0.765432 (0.745627)
+[2019-09-18 15:08:39,431-log_helper.py# 77] [INFO] Progress: 2440 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:24 (D:H:M)
+
+[2019-09-18 15:08:46,602-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2460/186884] step_time: 0.351975 (0.340936)	train_loss: 0.695660 (0.616146)	test_loss: 0.708749 (0.705628)	train_metric: 0.702448 (0.745503)
+[2019-09-18 15:08:46,602-log_helper.py# 77] [INFO] Progress: 2460 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:20:42 (D:H:M)
+
+[2019-09-18 15:08:53,788-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2480/186884] step_time: 0.353857 (0.341053)	train_loss: 0.678941 (0.616026)	test_loss: 0.738833 (0.705920)	train_metric: 0.688962 (0.745352)
+[2019-09-18 15:08:53,788-log_helper.py# 77] [INFO] Progress: 2480 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:00 (D:H:M)
+
+[2019-09-18 15:09:00,935-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2500/186884] step_time: 0.349749 (0.341154)	train_loss: 0.698166 (0.615331)	test_loss: 0.745251 (0.706057)	train_metric: 0.807063 (0.745577)
+[2019-09-18 15:09:00,935-log_helper.py# 77] [INFO] Progress: 2500 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:15 (D:H:M)
+
+[2019-09-18 15:09:08,045-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2520/186884] step_time: 0.350798 (0.341237)	train_loss: 0.652172 (0.615233)	test_loss: 0.655154 (0.706085)	train_metric: 0.809484 (0.745856)
+[2019-09-18 15:09:08,045-log_helper.py# 77] [INFO] Progress: 2520 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:28 (D:H:M)
+
+[2019-09-18 15:09:15,190-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2540/186884] step_time: 0.349326 (0.341333)	train_loss: 0.652715 (0.615375)	test_loss: 0.739884 (0.705992)	train_metric: 0.794064 (0.745953)
+[2019-09-18 15:09:15,190-log_helper.py# 77] [INFO] Progress: 2540 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:43 (D:H:M)
+
+[2019-09-18 15:09:22,290-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2560/186884] step_time: 0.350563 (0.341409)	train_loss: 0.691042 (0.615441)	test_loss: 0.689507 (0.705977)	train_metric: 0.713689 (0.745936)
+[2019-09-18 15:09:22,290-log_helper.py# 77] [INFO] Progress: 2560 / 9344200 [0%], Speed: 0.341 s/iter, ETA 36:21:55 (D:H:M)
+
+[2019-09-18 15:09:29,441-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2580/186884] step_time: 0.354080 (0.341505)	train_loss: 0.510097 (0.615288)	test_loss: 0.674782 (0.705948)	train_metric: 0.678373 (0.745923)
+[2019-09-18 15:09:29,442-log_helper.py# 77] [INFO] Progress: 2580 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:10 (D:H:M)
+
+[2019-09-18 15:09:36,771-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2600/186884] step_time: 0.352740 (0.341617)	train_loss: 0.650520 (0.615459)	test_loss: 0.685542 (0.705881)	train_metric: 0.789629 (0.745972)
+[2019-09-18 15:09:37,023-log_helper.py# 77] [INFO] Progress: 2600 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:27 (D:H:M)
+
+[2019-09-18 15:09:44,190-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2620/186884] step_time: 0.349205 (0.341681)	train_loss: 0.286523 (0.615136)	test_loss: 0.672264 (0.705753)	train_metric: 0.789198 (0.746104)
+[2019-09-18 15:09:44,190-log_helper.py# 77] [INFO] Progress: 2620 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:37 (D:H:M)
+
+[2019-09-18 15:09:51,279-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2640/186884] step_time: 0.339761 (0.341748)	train_loss: 0.662067 (0.615319)	test_loss: 0.688089 (0.705590)	train_metric: 0.869910 (0.746229)
+[2019-09-18 15:09:51,279-log_helper.py# 77] [INFO] Progress: 2640 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:47 (D:H:M)
+
+[2019-09-18 15:09:58,353-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2660/186884] step_time: 0.348954 (0.341809)	train_loss: 0.693683 (0.614916)	test_loss: 0.664491 (0.705599)	train_metric: 0.740675 (0.746525)
+[2019-09-18 15:09:58,353-log_helper.py# 77] [INFO] Progress: 2660 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:22:57 (D:H:M)
+
+[2019-09-18 15:10:05,556-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2680/186884] step_time: 0.340809 (0.341915)	train_loss: 0.688855 (0.614764)	test_loss: 0.654023 (0.705928)	train_metric: 0.741052 (0.746741)
+[2019-09-18 15:10:05,557-log_helper.py# 77] [INFO] Progress: 2680 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:13 (D:H:M)
+
+[2019-09-18 15:10:12,493-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2700/186884] step_time: 0.336707 (0.341923)	train_loss: 0.676316 (0.614594)	test_loss: 0.660201 (0.706302)	train_metric: 0.717188 (0.746982)
+[2019-09-18 15:10:12,494-log_helper.py# 77] [INFO] Progress: 2700 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:14 (D:H:M)
+
+[2019-09-18 15:10:19,717-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2720/186884] step_time: 0.353641 (0.342035)	train_loss: 0.669305 (0.614595)	test_loss: 0.660251 (0.706158)	train_metric: 0.866923 (0.747219)
+[2019-09-18 15:10:19,717-log_helper.py# 77] [INFO] Progress: 2720 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:31 (D:H:M)
+
+[2019-09-18 15:10:26,876-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2740/186884] step_time: 0.352218 (0.342123)	train_loss: 0.669822 (0.614284)	test_loss: 0.694881 (0.705930)	train_metric: 0.853308 (0.747622)
+[2019-09-18 15:10:26,876-log_helper.py# 77] [INFO] Progress: 2740 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:45 (D:H:M)
+
+[2019-09-18 15:10:33,931-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2760/186884] step_time: 0.349059 (0.342172)	train_loss: 0.693378 (0.614601)	test_loss: 0.689324 (0.705747)	train_metric: 0.729847 (0.747723)
+[2019-09-18 15:10:33,931-log_helper.py# 77] [INFO] Progress: 2760 / 9344200 [0%], Speed: 0.342 s/iter, ETA 36:23:52 (D:H:M)
+
+[2019-09-18 15:10:40,994-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2780/186884] step_time: 0.359815 (0.342223)	train_loss: 0.458687 (0.614783)	test_loss: 0.685552 (0.705643)	train_metric: 0.700083 (0.747831)
+[2019-09-18 15:10:40,995-log_helper.py# 77] [INFO] Progress: 2780 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:00 (D:H:M)
+
+[2019-09-18 15:10:48,134-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2800/186884] step_time: 0.339121 (0.342246)	train_loss: 0.700776 (0.614791)	test_loss: 0.668141 (0.705569)	train_metric: 0.679171 (0.748081)
+[2019-09-18 15:10:48,145-log_helper.py# 77] [INFO] Progress: 2800 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:04 (D:H:M)
+
+[2019-09-18 15:10:55,116-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2820/186884] step_time: 0.346200 (0.342260)	train_loss: 0.413118 (0.614871)	test_loss: 0.699926 (0.705413)	train_metric: 0.766840 (0.748272)
+[2019-09-18 15:10:55,116-log_helper.py# 77] [INFO] Progress: 2820 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:06 (D:H:M)
+
+[2019-09-18 15:11:02,385-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2840/186884] step_time: 0.341805 (0.342382)	train_loss: 0.696310 (0.614687)	test_loss: 0.711335 (0.705352)	train_metric: 0.682346 (0.748679)
+[2019-09-18 15:11:02,385-log_helper.py# 77] [INFO] Progress: 2840 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:25 (D:H:M)
+
+[2019-09-18 15:11:09,309-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2860/186884] step_time: 0.340345 (0.342380)	train_loss: 0.437327 (0.614568)	test_loss: 0.688568 (0.705255)	train_metric: 0.783514 (0.748995)
+[2019-09-18 15:11:09,309-log_helper.py# 77] [INFO] Progress: 2860 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:24 (D:H:M)
+
+[2019-09-18 15:11:16,226-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2880/186884] step_time: 0.339849 (0.342378)	train_loss: 0.663737 (0.614427)	test_loss: 0.711036 (0.705127)	train_metric: 0.877715 (0.749470)
+[2019-09-18 15:11:16,226-log_helper.py# 77] [INFO] Progress: 2880 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:24 (D:H:M)
+
+[2019-09-18 15:11:23,179-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2900/186884] step_time: 0.341311 (0.342386)	train_loss: 0.661277 (0.614378)	test_loss: 0.669528 (0.704976)	train_metric: 0.802307 (0.749824)
+[2019-09-18 15:11:23,180-log_helper.py# 77] [INFO] Progress: 2900 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:25 (D:H:M)
+
+[2019-09-18 15:11:30,154-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2920/186884] step_time: 0.344871 (0.342400)	train_loss: 0.689093 (0.614099)	test_loss: 0.646674 (0.704772)	train_metric: 0.792014 (0.750070)
+[2019-09-18 15:11:30,155-log_helper.py# 77] [INFO] Progress: 2920 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:27 (D:H:M)
+
+[2019-09-18 15:11:37,073-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2940/186884] step_time: 0.342510 (0.342397)	train_loss: 0.680970 (0.613873)	test_loss: 0.692124 (0.704620)	train_metric: 0.780262 (0.750484)
+[2019-09-18 15:11:37,073-log_helper.py# 77] [INFO] Progress: 2940 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:26 (D:H:M)
+
+[2019-09-18 15:11:44,069-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2960/186884] step_time: 0.344117 (0.342418)	train_loss: 0.669855 (0.613792)	test_loss: 0.688311 (0.704455)	train_metric: 0.882797 (0.750667)
+[2019-09-18 15:11:44,070-log_helper.py# 77] [INFO] Progress: 2960 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:30 (D:H:M)
+
+[2019-09-18 15:11:51,008-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][2980/186884] step_time: 0.342722 (0.342421)	train_loss: 0.682214 (0.613727)	test_loss: 0.700667 (0.704310)	train_metric: 0.840276 (0.751151)
+[2019-09-18 15:11:51,008-log_helper.py# 77] [INFO] Progress: 2980 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:30 (D:H:M)
+
+[2019-09-18 15:11:59,134-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3000/186884] step_time: 0.356227 (0.342476)	train_loss: 0.636109 (0.613467)	test_loss: 0.691391 (0.704145)	train_metric: 0.794771 (0.751446)
+[2019-09-18 15:11:59,134-log_helper.py# 77] [INFO] Progress: 3000 / 9344200 [0%], Speed: 0.342 s/iter, ETA 37:00:38 (D:H:M)
+
+[2019-09-18 15:12:06,461-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3020/186884] step_time: 0.347317 (0.342602)	train_loss: 0.705074 (0.612945)	test_loss: 0.686337 (0.704042)	train_metric: 0.559816 (0.751756)
+[2019-09-18 15:12:06,461-log_helper.py# 77] [INFO] Progress: 3020 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:00:58 (D:H:M)
+
+[2019-09-18 15:12:13,634-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3040/186884] step_time: 0.356799 (0.342682)	train_loss: 0.661920 (0.613174)	test_loss: 0.691357 (0.703928)	train_metric: 0.911168 (0.752024)
+[2019-09-18 15:12:13,634-log_helper.py# 77] [INFO] Progress: 3040 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:01:10 (D:H:M)
+
+[2019-09-18 15:12:20,811-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3060/186884] step_time: 0.352016 (0.342759)	train_loss: 0.686521 (0.612864)	test_loss: 0.707303 (0.703814)	train_metric: 0.866792 (0.752292)
+[2019-09-18 15:12:20,811-log_helper.py# 77] [INFO] Progress: 3060 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:01:22 (D:H:M)
+
+[2019-09-18 15:12:27,998-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3080/186884] step_time: 0.360009 (0.342837)	train_loss: 0.283406 (0.612936)	test_loss: 0.692716 (0.703722)	train_metric: 0.867087 (0.752478)
+[2019-09-18 15:12:27,998-log_helper.py# 77] [INFO] Progress: 3080 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:01:34 (D:H:M)
+
+[2019-09-18 15:12:35,198-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3100/186884] step_time: 0.371403 (0.342920)	train_loss: 0.683332 (0.612833)	test_loss: 0.692144 (0.703560)	train_metric: 0.790639 (0.752734)
+[2019-09-18 15:12:35,198-log_helper.py# 77] [INFO] Progress: 3100 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:01:47 (D:H:M)
+
+[2019-09-18 15:12:42,497-train_video_prediction_KTHDataset.py#186] [INFO] Epoch: [1][3120/186884] step_time: 0.352279 (0.343028)	train_loss: 0.669642 (0.612649)	test_loss: 0.682211 (0.703420)	train_metric: 0.828880 (0.752999)
+[2019-09-18 15:12:42,498-log_helper.py# 77] [INFO] Progress: 3120 / 9344200 [0%], Speed: 0.343 s/iter, ETA 37:02:04 (D:H:M)
 
