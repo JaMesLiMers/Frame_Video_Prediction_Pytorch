@@ -97,6 +97,7 @@ if arch == "Custom":
     from custom import Custom
     model = Custom(cfg=cfg.model)
     model = model.to(device)
+    model = torch.nn.DataParallel(model, list(range(torch.cuda.device_count()))).to(device)
 else:
     raise NotImplementedError
 
