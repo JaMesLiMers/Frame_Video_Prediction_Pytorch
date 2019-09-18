@@ -1,7 +1,28 @@
-[2019-09-17 15:29:31,382-config_helper.py# 61] [DEBUG] Used config: 
- {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 2, 'lr': 0.001, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
-[2019-09-17 15:29:31,835-train_video_prediction_MNIST.py# 86] [DEBUG] ==>>> total trainning batch number: 4500
-[2019-09-17 15:29:31,835-train_video_prediction_MNIST.py# 87] [DEBUG] ==>>> total testing batch number: 500
-[2019-09-17 15:29:33,234-train_video_prediction_MNIST.py#122] [DEBUG] Input:  torch.Size([2, 10, 1, 64, 64])
-[2019-09-17 15:29:33,235-train_video_prediction_MNIST.py#123] [DEBUG] --- Sample
-[2019-09-17 15:29:33,235-train_video_prediction_MNIST.py#124] [DEBUG] Target: torch.Size([2, 10, 1, 64, 64])
+[2019-09-18 12:37:37,178-config_helper.py# 61] [DEBUG] Used config: 
+ {'meta': {'experiment_path': 'experiments', 'arch': 'Custom', 'board_path': 'board', 'experiment_name': 'PredRNN'}, 'train': {'epoches': 50, 'batch_size': 1, 'lr': 0.001, 'print_freq': 20}, 'model': {'input_size': [64, 64], 'input_dim': 1, 'hidden_dim': 64, 'kernel_size': [3, 3], 'input_num': 10}}
+[2019-09-18 12:37:37,725-train_video_prediction_MNIST.py# 87] [DEBUG] ==>>> total trainning batch number: 9000
+[2019-09-18 12:37:37,725-train_video_prediction_MNIST.py# 88] [DEBUG] ==>>> total testing batch number: 1000
+[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#123] [DEBUG] Input:  torch.Size([1, 10, 1, 64, 64])
+[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#124] [DEBUG] --- Sample
+[2019-09-18 12:37:39,145-train_video_prediction_MNIST.py#125] [DEBUG] Target: torch.Size([1, 10, 1, 64, 64])
+[2019-09-18 12:37:49,613-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][20/9000] step_time: 0.320470 (0.434448)	train_loss: 0.138531 (0.304780)	test_loss: 0.168560 (0.275234)	train_metric: 0.016280 (0.006923)
+[2019-09-18 12:37:49,613-log_helper.py# 77] [INFO] Progress: 20 / 450000 [0%], Speed: 0.434 s/iter, ETA 2:06:18 (D:H:M)
+
+[2019-09-18 12:37:56,812-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][40/9000] step_time: 0.332355 (0.391457)	train_loss: 0.104855 (0.217677)	test_loss: 0.080439 (0.201919)	train_metric: 0.073454 (0.024217)
+[2019-09-18 12:37:56,812-log_helper.py# 77] [INFO] Progress: 40 / 450000 [0%], Speed: 0.391 s/iter, ETA 2:00:55 (D:H:M)
+
+[2019-09-18 12:38:03,850-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][60/9000] step_time: 0.353796 (0.375182)	train_loss: 0.082987 (0.180787)	test_loss: 0.161481 (0.173862)	train_metric: 0.169510 (0.057604)
+[2019-09-18 12:38:03,850-log_helper.py# 77] [INFO] Progress: 60 / 450000 [0%], Speed: 0.375 s/iter, ETA 1:22:53 (D:H:M)
+
+[2019-09-18 12:38:10,886-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][80/9000] step_time: 0.342420 (0.366823)	train_loss: 0.094979 (0.162364)	test_loss: 0.124447 (0.156499)	train_metric: 0.261862 (0.098988)
+[2019-09-18 12:38:10,887-log_helper.py# 77] [INFO] Progress: 80 / 450000 [0%], Speed: 0.367 s/iter, ETA 1:21:50 (D:H:M)
+
+[2019-09-18 12:38:17,874-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][100/9000] step_time: 0.346223 (0.361481)	train_loss: 0.127589 (0.150063)	test_loss: 0.119158 (0.144957)	train_metric: 0.368859 (0.146176)
+[2019-09-18 12:38:17,874-log_helper.py# 77] [INFO] Progress: 100 / 450000 [0%], Speed: 0.361 s/iter, ETA 1:21:10 (D:H:M)
+
+[2019-09-18 12:38:24,970-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][120/9000] step_time: 0.329388 (0.358651)	train_loss: 0.095445 (0.142127)	test_loss: 0.107106 (0.136386)	train_metric: 0.462035 (0.192409)
+[2019-09-18 12:38:24,976-log_helper.py# 77] [INFO] Progress: 120 / 450000 [0%], Speed: 0.359 s/iter, ETA 1:20:49 (D:H:M)
+
+[2019-09-18 12:38:31,887-train_video_prediction_MNIST.py#182] [INFO] Epoch: [1][140/9000] step_time: 0.348980 (0.355527)	train_loss: 0.075004 (0.135778)	test_loss: 0.067239 (0.131511)	train_metric: 0.556190 (0.237647)
+[2019-09-18 12:38:31,887-log_helper.py# 77] [INFO] Progress: 140 / 450000 [0%], Speed: 0.356 s/iter, ETA 1:20:25 (D:H:M)
+

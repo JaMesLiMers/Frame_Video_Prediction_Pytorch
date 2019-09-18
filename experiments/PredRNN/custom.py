@@ -40,8 +40,8 @@ class Custom(nn.Module):
 
         self.head = nn.Conv2d(in_channels=self.hidden_dim,
                               out_channels=self.input_dim,
-                              kernel_size=(1,1),
-                              bias=True)
+                              kernel_size=(1,1))
+
 
     def forward(self, input, hidden=None, future=10):
         """
@@ -80,6 +80,7 @@ class Custom(nn.Module):
                                          cur_state=[h_t4, c_t4, m_t3])
 
             output = self.head(h_t4)
+            output = torch.sigmoid(output)
             outputs += [output]
 
         
@@ -99,6 +100,7 @@ class Custom(nn.Module):
                                          cur_state=[h_t4, c_t4, m_t3])
         
             output = self.head(h_t4)
+            output = torch.sigmoid(output)
             outputs += [output]
 
         

@@ -18,7 +18,8 @@ import logging
 from utils.log_helper import init_log, add_file_handler, print_speed
 from utils.config_helper import Configs
 from utils.average_meter_helper import AverageMeter
-from model.losses import SSIM
+from model.loss.SSIM_Loss import SSIM
+from model.loss.L1_L2_Loss import L1_L2_Loss
 
 # 生成命令行的参数
 parser = argparse.ArgumentParser(description='Train moving mnist video prediction algorithm')
@@ -110,7 +111,7 @@ loss_BCE = nn.BCELoss().to(device)
 # SSIM
 loss_SSIM = SSIM(window_size=11, size_average=True)
 
-loss = loss_L1
+loss_L1_L2 = L1_L2_Loss().to(device)
 
 # 训练的部分
 for epoch in range(epoches):
@@ -132,9 +133,9 @@ for epoch in range(epoches):
         layer_output = model(seq, future=num_frame)
 
         # loss计算
-        train_loss = loss(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
+        train_loss = loss_L1_L2(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
         with torch.no_grad():
-            train_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :]).no_grad()
+            train_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :])
         train_loss.backward()
 
         # 优化器更新
@@ -156,8 +157,8 @@ for epoch in range(epoches):
             test_output = model(seq_test, future=num_frame)
 
             # loss计算
-            test_loss = loss(seq_test[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
-            test_metric = loss_SSIM(layer_output[:, -num_frame:, :, :, :], seq_target[:, -num_frame:, :, :, :]).no_grad()
+            test_loss = loss_L1_L2(test_output[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
+            test_metric = loss_SSIM(test_output[:, -num_frame:, :, :, :], gt_seq_test[:, -num_frame:, :, :, :])
 
         step_time = time.time() - step_time
 
