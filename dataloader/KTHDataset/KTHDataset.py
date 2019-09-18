@@ -193,7 +193,7 @@ class KTHDataset(data.Dataset):
         
         print('downloading sequence file...')
         data = urllib.request.urlopen(self.sequence_url)
-        sequence_name = url.rpartition('/')[2]
+        sequence_name = self.sequence_url.rpartition('/')[2]
         file_dir = os.path.join(self.root, self.raw_folder)
         file_path = os.path.join(self.root, self.raw_folder, sequence_name)
         with open(file_path, 'wb') as f:
