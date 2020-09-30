@@ -1,5 +1,7 @@
 # Frame_Video_Prediction_Pytorch
 frame video prediction algorithm framework used pytorch.
+This project is supposed to be a example of dl to help my frined finish their surf project.
+Hope this can help you too~~
 
 # How to start
 Walkthrough the folders ReadMe.md file for a quick look.
