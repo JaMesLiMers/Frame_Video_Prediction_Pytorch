@@ -13,6 +13,6 @@ tensorboardX==1.6
 opencv_python==3.4.3.18
 torch==1.1.0
 torchvision==0.2.1
-joblib==0.13.0
+joblib==1.2.0
 moviepy==1.0.0
 nvidia-ml-py3==7.352.0
